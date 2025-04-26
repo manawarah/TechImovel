@@ -73,7 +73,7 @@ include_once('./includes/bootstrap.php');
             </div>
             <button type="submit" class="btn btn-green w-100">Entrar</button>
         </form>
-        <p>Já possui cadastro? <a href="login.php">Clique aqui</a></p>
+        <p>Já possui cadastro? <a href="index.php">Clique aqui</a></p>
     </div>
 </body>
 

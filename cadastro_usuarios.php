@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($stmt->execute()) {
         echo "<p>Cadastro realizado com sucesso!</p>";
-        echo "<a href='login.php'>Ir para login</a>";
+        echo "<a href='index.php'>Ir para login</a>";
     } else {
         echo "<p>Erro: " . $stmt->error . "</p>";
     }

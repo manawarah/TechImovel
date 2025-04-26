@@ -73,7 +73,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <div class="login-box text-center">
     <img src="./assets/logo/logo-techimovel.jfif" alt="Logo TechImóvel" class="logo" style="border-radius: 80px;">
     <h2 class="mb-4">TechImóvel <p>Acesso ao Sistema</p></h2>
-    <form action="login.php" method="POST">
+    <form action="index.php" method="POST">
       <div class="mb-3 text-start">
         <label for="usuario" for="login" class="form-label">Login</label>
         <input type="text" class="form-control" id="login" name="login" required>

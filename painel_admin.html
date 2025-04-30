@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+
+<html lang="pt-br">
+<head>
+<meta charset="utf-8"/>
+<title>Painel Administrativo</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/><style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+        .container { width: 90%; max-width: 1200px; margin: auto; padding: 20px; }
+        img { max-width: 100%; height: auto; }
+        @media (max-width: 768px) {
+            .container { padding: 10px; }
+        }
+        </style></head>
+<body class="bg-light">
+<div class="container mt-5">
+<div class="card shadow p-4">
+<h2 class="mb-4 text-center">Painel de Imóveis</h2>
+<div class="d-flex justify-content-between align-items-center mb-3">
+<p class="mb-0">Bem-vindo, <strong><?= $_SESSION['admin']; ?></strong></p>
+<a class="btn btn-outline-danger" href="../logout.php">Sair</a>
+</div>
+<div class="text-end mb-3">
+<a class="btn btn-success" href="../admin_adicionar.php">+ Adicionar Imóvel</a>
+</div>
+<div class="table-responsive">
+<table class="table table-bordered table-hover align-middle">
+<thead class="table-dark text-center">
+<tr>
+<th>ID</th>
+<th>Título</th>
+<th>Construtora</th>
+<th>Metragem</th>
+<th>Localização</th>
+<th>Preço</th>
+<th>Imagem</th>
+<th>Link</th>
+<th>Ações</th>
+</tr>
+</thead>
+<tbody class="text-center">
+<tr>
+<td><?= $imovel['id']; ?></td>
+<td><?= $imovel['titulo']; ?></td>
+<td><?= $imovel['construtora']; ?></td>
+<td><?= $imovel['metragem']; ?></td>
+<td><?= $imovel['localizacao']; ?></td>
+<td>R$ <?= number_format($imovel['preco'], 2, ',', '.'); ?></td>
+<td><img class="img-thumbnail" src="../assets/imoveis/&lt;?= $imovel['imagem']; ?&gt;" width="100"/></td>
+<td><a class="btn btn-sm btn-primary" href="&lt;?= $imovel['link_mais_info']; ?&gt;" target="_blank">Ver</a></td>
+<td>
+<a class="btn btn-sm btn-warning mb-1" href="../admin_editar.php?id=&lt;?= $imovel['id']; ?&gt;">Editar</a>
+<a class="btn btn-sm btn-danger" href="../admin_deletar.php?id=&lt;?= $imovel['id']; ?&gt;" onclick="return confirm('Tem certeza que deseja excluir?')">Excluir</a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</body>
+</html>

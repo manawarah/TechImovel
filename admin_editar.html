@@ -1,0 +1,13 @@
+
+
+<form method="post" enctype="multipart/form-data">
+    <h2>Editar Imóvel</h2>
+    <input name="titulo" value="<?= $result['titulo'] ?>" required><br>
+    <input name="construtora" value="<?= $result['construtora'] ?>" required><br>
+    <input name="metragem" value="<?= $result['metragem'] ?>" required><br>
+    <input name="localizacao" value="<?= $result['localizacao'] ?>" required><br>
+    <input name="preco" value="<?= $result['preco'] ?>" required><br>
+    <input type="file" name="imagem"><br>
+    <input name="link_mais_info" value="<?= $result['link_mais_info'] ?>"><br>
+    <button type="submit">Salvar</button>
+</form>

@@ -19,11 +19,10 @@
         }
 
         html {
-
-            display: flex;
             justify-content: center;
             align-items: center;
         }
+
         body {
             font-family: 'Poppins', sans-serif;
             background: #f8f9fa;
@@ -106,6 +105,7 @@
 
         .logo {
             width: 120px;
+            border-radius: 80px;
             display: block;
             margin: 0 auto 2rem;
         }
@@ -114,39 +114,141 @@
             margin-left: 250px;
             padding: 2rem;
         }
+
+        @media (max-width: 991.98px) {
+            .sidebar {
+                position: fixed;
+                top: 0;
+                left: -250px;
+                width: 250px;
+                height: 100%;
+                transition: left 0.3s;
+                z-index: 1050;
+            }
+
+            .sidebar.show {
+                left: 0;
+            }
+
+            .overlay {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                background-color: rgba(0, 0, 0, 0.5);
+                z-index: 1040;
+            }
+
+            .overlay.show {
+                display: block;
+            }
+
+            .main-content {
+                padding-left: 1rem !important;
+                padding-right: 1rem !important;
+            }
+        }
     </style>
 </head>
 
 <body>
-  <!-- Sidebar -->
-  <div class="sidebar d-flex flex-column">
-    <img src="./assets/logo/logo-techimovel.jfif" alt="Logo" class="logo"/>
-    <nav class="nav flex-column px-3">
-      <a class="nav-link" href="./dashboard.html"><i class="bi bi-speedometer2"></i> Dashboard</a>
-      <a class="nav-link" href="./painel_crm.html"><i class="bi bi-person-lines-fill"></i> CRM</a>
-      <a class="nav-link" href="./parceria_corretor.html";><i class="bi bi-building"></i> Parceria</a>
-      <a class="nav-link" href="./construtora.html"><i class="bi bi-house-door-fill"></i> Construtora</a>
-      <a class="nav-link" href="./index.html"><i class="bi bi-box-arrow-right"></i> Sair</a>
+    <!-- Botão do menu (mobile) -->
+    <nav class="navbar navbar-dark bg-dark d-lg-none">
+        <div class="container-fluid">
+            <button class="btn btn-outline-light" id="menuToggle"><i class="bi bi-list"></i></button>
+            <span class="navbar-brand mb-0 h1">Gerenciador de Clientes</span>
+        </div>
     </nav>
-  </div>
-    <div class="main-content flex-grow-1 p-4">
 
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
 
+    <!-- Sidebar -->
+    <div class="sidebar d-flex flex-column position-lg-static" id="sidebar">
+        <img src="./assets/logo/logo-techimovel.jfif" alt="Logo" class="logo" />
+        <nav class="nav flex-column px-3">
+            <a class="nav-link" href="./dashboard.html"><i class="bi bi-speedometer2"></i> Dashboard</a>
+            <a class="nav-link" href="./painel_crm.html"><i class="bi bi-person-lines-fill"></i> CRM</a>
+            <a class="nav-link" href="./parceria_corretor.html"><i class="bi bi-building"></i> Parceria</a>
+            <a class="nav-link" href="./construtora.html"><i class="bi bi-house-door-fill"></i> Construtora</a>
+            <a class="nav-link" href="./index.html"><i class="bi bi-box-arrow-right"></i> Sair</a>
+        </nav>
+    </div>
+    <div>
+
+        <br>
         <h2>Cadastrar Imóvel no CRM</h2>
-        <form action="#" enctype="multipart/form-data" method="POST"
-            onsubmit="event.preventDefault(); alert('Simulação de envio bem-sucedida!');">
-            <input name="residencial" placeholder="Nome do Residencial" required="" type="text" /><br /><br />
-            <input name="quartos" placeholder="Número de Quartos" required="" type="text" /><br /><br />
-            <input name="valor" placeholder="Valor" required="" type="text" /><br /><br />
-            <input name="bairro" placeholder="Bairro" required="" type="text" /><br /><br />
-            <input name="pretencao" placeholder="Pretensão (Venda/Aluguel)" required="" type="text" /><br /><br />
-            <input name="imagem" type="file" /><br /><br />
-            <button class="btn btn-success" name="cadastrar" type="submit">Cadastrar Imóvel</button>
-        </form>
-        <footer style="background-color: #222; color: #fff; text-align: center; padding: 20px;">
+        <div class="container mt-4">
+            <form action="#" enctype="multipart/form-data" method="POST"
+                onsubmit="event.preventDefault(); alert('Simulação de envio bem-sucedida!');">
+
+                <div class="mb-3">
+                    <label for="residencial" class="form-label">Nome do Residencial</label>
+                    <input type="text" class="form-control" id="residencial" name="residencial"
+                        placeholder="Ex: Residencial Sol Nascente" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="quartos" class="form-label">Número de Quartos</label>
+                    <input type="text" class="form-control" id="quartos" name="quartos" placeholder="Ex: 3" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="valor" class="form-label">Valor</label>
+                    <input type="text" class="form-control" id="valor" name="valor" placeholder="Ex: R$ 250.000"
+                        required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="bairro" class="form-label">Bairro</label>
+                    <input type="text" class="form-control" id="bairro" name="bairro" placeholder="Ex: Centro" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="pretencao" class="form-label">Pretensão</label>
+                    <input type="text" class="form-control" id="pretencao" name="pretencao"
+                        placeholder="Venda ou Aluguel" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="imagem" class="form-label">Imagem do Imóvel</label>
+                    <input class="form-control" type="file" id="imagem" name="imagem">
+                </div>
+
+                <div class="col-12">
+                    <a href="crm_add_cliente.php">
+                        <button class="btn btn-primary mb-3" type="submit"><a style="text-decoration: none; color: white;" href="./crm_gerenciador_imoveis.html">Adicionar Imóvel</a></button>
+                    </a>
+                    <a href="crm_add_cliente.php">
+                        <a href="./crm_cliente.php">
+                            <button class="btn btn-primary mb-3" type="submit"><a style="text-decoration: none; color: white;" href="./crm_gerenciador_imoveis.html">Voltar</a></button>
+                        </a>
+                    </a>
+                </div>
+            </form>
+        </div>
+
+        <script>
+            const toggleBtn = document.getElementById('menuToggle');
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('overlay');
+        
+            toggleBtn.addEventListener('click', () => {
+              sidebar.classList.toggle('show');
+              overlay.classList.toggle('show');
+            });
+        
+            overlay.addEventListener('click', () => {
+              sidebar.classList.remove('show');
+              overlay.classList.remove('show');
+            });
+          </script>
+        <footer style=" color: #222; text-align: center; padding: 20px;">
             <p>&copy; 2025 Manawarah. Todos os direitos reservados.</p>
-          </footer>
-          
+        </footer>
+
 
 </body>
 

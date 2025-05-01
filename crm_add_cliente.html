@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <style>
         * {
-
+  
             padding: 0;
             border: 0;
             box-sizing: border-box;
@@ -17,119 +17,165 @@
             font-size: 16px;
             font-family: Poetsen One;
         }
-
+  
         html {
-
-            display: flex;
             justify-content: center;
             align-items: center;
         }
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: #f8f9fa;
-            margin: 0;
-            padding: 20px;
-        }
-
-        h1 {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-bottom: 40px;
-        }
-
-        .card {
-            background: white;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-
-        .card h3 {
-            margin: 0;
-            font-size: 1.5em;
-            color: #333;
-        }
-
-        .card p {
-            margin: 10px 0 0;
-            color: #777;
-        }
-
-        .charts {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-        }
-
-        .chart-container {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        @media (max-width: 768px) {
-            .charts {
-                grid-template-columns: 1fr;
-            }
-        }
-
+          body {
+              font-family: 'Poppins', sans-serif;
+              background: #f8f9fa;
+              margin: 0;
+              padding: 20px;
+          }
+  
+          h1 {
+              text-align: center;
+              margin-bottom: 30px;
+          }
+  
+          .cards {
+              display: grid;
+              grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+              gap: 20px;
+              margin-bottom: 40px;
+          }
+  
+          .card {
+              background: white;
+              border-radius: 10px;
+              padding: 20px;
+              box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+              text-align: center;
+          }
+  
+          .card h3 {
+              margin: 0;
+              font-size: 1.5em;
+              color: #333;
+          }
+  
+          .card p {
+              margin: 10px 0 0;
+              color: #777;
+          }
+  
+          .charts {
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              gap: 40px;
+          }
+  
+          .chart-container {
+              background: white;
+              padding: 20px;
+              border-radius: 10px;
+              box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+          }
+  
+          @media (max-width: 768px) {
+              .charts {
+                  grid-template-columns: 1fr;
+              }
+          }
+  
+          .sidebar {
+              height: 100vh;
+              width: 250px;
+              position: fixed;
+              top: 0;
+              left: 0;
+              background-color: #0F123F;
+              padding-top: 2rem;
+              color: white;
+          }
+  
+          .sidebar .nav-link {
+              color: white;
+              font-weight: 500;
+          }
+  
+          .sidebar .nav-link:hover,
+          .sidebar .nav-link.active {
+              background-color: #00FF66;
+              color: #000;
+              border-radius: 8px;
+          }
+  
+          .logo {
+              width: 120px;
+              border-radius: 80px;
+              display: block;
+              margin: 0 auto 2rem;
+          }
+  
+          .main-content {
+              margin-left: 250px;
+              padding: 2rem;
+          }
+          @media (max-width: 991.98px) {
         .sidebar {
-            height: 100vh;
-            width: 250px;
-            position: fixed;
-            top: 0;
-            left: 0;
-            background-color: #0F123F;
-            padding-top: 2rem;
-            color: white;
+          position: fixed;
+          top: 0;
+          left: -250px;
+          width: 250px;
+          height: 100%;
+          transition: left 0.3s;
+          z-index: 1050;
         }
-
-        .sidebar .nav-link {
-            color: white;
-            font-weight: 500;
+  
+        .sidebar.show {
+          left: 0;
         }
-
-        .sidebar .nav-link:hover,
-        .sidebar .nav-link.active {
-            background-color: #00FF66;
-            color: #000;
-            border-radius: 8px;
+  
+        .overlay {
+          display: none;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          background-color: rgba(0,0,0,0.5);
+          z-index: 1040;
         }
-
-        .logo {
-            width: 120px;
-            display: block;
-            margin: 0 auto 2rem;
+  
+        .overlay.show {
+          display: block;
         }
-
+  
         .main-content {
-            margin-left: 250px;
-            padding: 2rem;
+          padding-left: 1rem !important;
+          padding-right: 1rem !important;
         }
-    </style>
-</head>
-
-<body>
-  <!-- Sidebar -->
-  <div class="sidebar d-flex flex-column">
-    <img src="./assets/logo/logo-techimovel.jfif" alt="Logo" class="logo"/>
-    <nav class="nav flex-column px-3">
-      <a class="nav-link" href="./dashboard.html"><i class="bi bi-speedometer2"></i> Dashboard</a>
-      <a class="nav-link" href="./painel_crm.html"><i class="bi bi-person-lines-fill"></i> CRM</a>
-      <a class="nav-link" href="./parceria_corretor.html";><i class="bi bi-building"></i> Parceria</a>
-      <a class="nav-link" href="./construtora.html"><i class="bi bi-house-door-fill"></i> Construtora</a>
-      <a class="nav-link" href="./index.html"><i class="bi bi-box-arrow-right"></i> Sair</a>
+      }
+      </style>
+  </head>
+  
+  <body>
+  <!-- Botão do menu (mobile) -->
+  <nav class="navbar navbar-dark bg-dark d-lg-none">
+      <div class="container-fluid">
+        <button class="btn btn-outline-light" id="menuToggle"><i class="bi bi-list"></i></button>
+        <span class="navbar-brand mb-0 h1">Gerenciador de Clientes</span>
+      </div>
     </nav>
-  </div>
-    <div class="main-content flex-grow-1 p-4">
+  
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
+  
+    <!-- Sidebar -->
+    <div class="sidebar d-flex flex-column position-lg-static" id="sidebar">
+      <img src="./assets/logo/logo-techimovel.jfif" alt="Logo" class="logo"/>
+      <nav class="nav flex-column px-3">
+        <a class="nav-link" href="./dashboard.html"><i class="bi bi-speedometer2"></i> Dashboard</a>
+        <a class="nav-link" href="./painel_crm.html"><i class="bi bi-person-lines-fill"></i> CRM</a>
+        <a class="nav-link" href="./parceria_corretor.html"><i class="bi bi-building"></i> Parceria</a>
+        <a class="nav-link" href="./construtora.html"><i class="bi bi-house-door-fill"></i> Construtora</a>
+        <a class="nav-link" href="./index.html"><i class="bi bi-box-arrow-right"></i> Sair</a>
+      </nav>
+    </div>
+    <br>
+    <div>
         <h2>Adicionar Cliente</h2>
         <br>
         <form method="post" class="row g-3">
@@ -177,12 +223,27 @@
     </div>
 
 
-    <footer style="background-color: #222; color: #fff; text-align: center; padding: 20px;">
+    <footer style=" color: #222; text-align: center; padding: 20px;">
         <p>&copy; 2025 Manawarah. Todos os direitos reservados.</p>
       </footer>
       
 
 
+      <script>
+        const toggleBtn = document.getElementById('menuToggle');
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('overlay');
+    
+        toggleBtn.addEventListener('click', () => {
+          sidebar.classList.toggle('show');
+          overlay.classList.toggle('show');
+        });
+    
+        overlay.addEventListener('click', () => {
+          sidebar.classList.remove('show');
+          overlay.classList.remove('show');
+        });
+      </script>
 </body>
 
 </html>

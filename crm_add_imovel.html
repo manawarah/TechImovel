@@ -146,6 +146,7 @@
             }
 
             .main-content {
+                margin-left: 0 !important;
                 padding-left: 1rem !important;
                 padding-right: 1rem !important;
             }
@@ -176,78 +177,69 @@
             <a class="nav-link" href="./index.html"><i class="bi bi-box-arrow-right"></i> Sair</a>
         </nav>
     </div>
-    <div>
-
-        <br>
+    <div class="main-content">
         <h2>Cadastrar Imóvel no CRM</h2>
-        <div class="container mt-4">
-            <form action="#" enctype="multipart/form-data" method="POST"
-                onsubmit="event.preventDefault(); alert('Simulação de envio bem-sucedida!');">
+        <form action="#" enctype="multipart/form-data" method="POST" class="mt-4"
+            onsubmit="event.preventDefault(); alert('Simulação de envio bem-sucedida!');">
 
-                <div class="mb-3">
-                    <label for="residencial" class="form-label">Nome do Residencial</label>
-                    <input type="text" class="form-control" id="residencial" name="residencial"
-                        placeholder="Ex: Residencial Sol Nascente" required>
-                </div>
+            <div class="mb-3">
+                <label for="residencial" class="form-label">Nome do Residencial</label>
+                <input type="text" class="form-control" id="residencial" name="residencial"
+                    placeholder="Ex: Residencial Sol Nascente" required>
+            </div>
 
-                <div class="mb-3">
-                    <label for="quartos" class="form-label">Número de Quartos</label>
-                    <input type="text" class="form-control" id="quartos" name="quartos" placeholder="Ex: 3" required>
-                </div>
+            <div class="mb-3">
+                <label for="quartos" class="form-label">Número de Quartos</label>
+                <input type="text" class="form-control" id="quartos" name="quartos" placeholder="Ex: 3" required>
+            </div>
 
-                <div class="mb-3">
-                    <label for="valor" class="form-label">Valor</label>
-                    <input type="text" class="form-control" id="valor" name="valor" placeholder="Ex: R$ 250.000"
-                        required>
-                </div>
+            <div class="mb-3">
+                <label for="valor" class="form-label">Valor</label>
+                <input type="text" class="form-control" id="valor" name="valor" placeholder="Ex: R$ 250.000" required>
+            </div>
 
-                <div class="mb-3">
-                    <label for="bairro" class="form-label">Bairro</label>
-                    <input type="text" class="form-control" id="bairro" name="bairro" placeholder="Ex: Centro" required>
-                </div>
+            <div class="mb-3">
+                <label for="bairro" class="form-label">Bairro</label>
+                <input type="text" class="form-control" id="bairro" name="bairro" placeholder="Ex: Centro" required>
+            </div>
 
-                <div class="mb-3">
-                    <label for="pretencao" class="form-label">Pretensão</label>
-                    <input type="text" class="form-control" id="pretencao" name="pretencao"
-                        placeholder="Venda ou Aluguel" required>
-                </div>
+            <div class="mb-3">
+                <label for="pretencao" class="form-label">Pretensão</label>
+                <input type="text" class="form-control" id="pretencao" name="pretencao" placeholder="Venda ou Aluguel"
+                    required>
+            </div>
 
-                <div class="mb-3">
-                    <label for="imagem" class="form-label">Imagem do Imóvel</label>
-                    <input class="form-control" type="file" id="imagem" name="imagem">
-                </div>
+            <div class="mb-4">
+                <label for="imagem" class="form-label">Imagem do Imóvel</label>
+                <input class="form-control" type="file" id="imagem" name="imagem">
+            </div>
 
-                <div class="col-12">
-                    <a href="crm_add_cliente.php">
-                        <button class="btn btn-primary mb-3" type="submit"><a style="text-decoration: none; color: white;" href="./crm_gerenciador_imoveis.html">Adicionar Imóvel</a></button>
-                    </a>
-                    <a href="crm_add_cliente.php">
-                        <a href="./crm_cliente.php">
-                            <button class="btn btn-primary mb-3" type="submit"><a style="text-decoration: none; color: white;" href="./crm_gerenciador_imoveis.html">Voltar</a></button>
-                        </a>
-                    </a>
-                </div>
-            </form>
-        </div>
+            <div class="d-flex gap-2">
+                <button type="submit" class="btn btn-primary">Adicionar Imóvel</button>
+                <a href="./crm_gerenciador_imoveis.html" class="btn btn-secondary">Voltar</a>
+            </div>
+        </form>
+    </div>
 
-        <script>
-            const toggleBtn = document.getElementById('menuToggle');
-            const sidebar = document.getElementById('sidebar');
-            const overlay = document.getElementById('overlay');
-        
-            toggleBtn.addEventListener('click', () => {
-              sidebar.classList.toggle('show');
-              overlay.classList.toggle('show');
-            });
-        
-            overlay.addEventListener('click', () => {
-              sidebar.classList.remove('show');
-              overlay.classList.remove('show');
-            });
-          </script>
-        <footer style=" color: #222; text-align: center; padding: 20px;">
-            <p>&copy; 2025 Manawarah. Todos os direitos reservados.</p>
-        </footer>
+
+    <script>
+        const toggleBtn = document.getElementById('menuToggle');
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('overlay');
+
+        toggleBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('show');
+            overlay.classList.toggle('show');
+        });
+
+        overlay.addEventListener('click', () => {
+            sidebar.classList.remove('show');
+            overlay.classList.remove('show');
+        });
+    </script>
+    <footer style=" color: #222; text-align: center; padding: 20px;">
+        <p>&copy; 2025 Manawarah. Todos os direitos reservados.</p>
+    </footer>
 
 
 </body>

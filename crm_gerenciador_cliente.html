@@ -228,45 +228,42 @@
         });
       </script>
 
-<script>
-  const tbody = document.querySelector("tbody");
-  let clientes = JSON.parse(localStorage.getItem("clientes")) || [];
+      <!-- Salvar os dados no localstorage captados do Add cliente para tabela -->
 
-  function renderClientes() {
-    tbody.innerHTML = "";
-    clientes.forEach((c, i) => {
-      const tr = document.createElement("tr");
-      tr.innerHTML = `
-        <td>${c.nome}</td>
-        <td>${c.status}</td>
-        <td>${c.contato}</td>
-        <td>${c.interesse}</td>
-        <td>${c.valor}</td>
-        <td>
-          <button class="btn btn-warning btn-sm" onclick="editar(${i})">Editar</button>
-          <button class="btn btn-danger btn-sm" onclick="remover(${i})">Remover</button>
-        </td>
-      `;
-      tbody.appendChild(tr);
-    });
-  }
+      <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          const tabela = document.querySelector('tbody');
+          const clientes = JSON.parse(localStorage.getItem('clientes')) || [];
+      
+          clientes.forEach((cliente, index) => {
+            const linha = document.createElement('tr');
+      
+            linha.innerHTML = `
+  <td>${cliente.nome}</td>
+  <td>${cliente.status}</td>
+  <td>${cliente.contato}</td>
+  <td>${cliente.interesse}</td>
+  <td>${cliente.valor}</td>
+  <td>
+        <a class="btn btn-sm btn-warning" href="./crm_add_cliente.html?edit=${index}">Editar</a>
+    <button class="btn btn-sm btn-danger" onclick="removerCliente(${index})">Excluir</button>
 
-  function remover(index) {
-    if (confirm("Deseja realmente remover este cliente?")) {
-      clientes.splice(index, 1);
-      localStorage.setItem("clientes", JSON.stringify(clientes));
-      renderClientes();
-    }
-  }
+  </td>
+`;
+      
+tabela.appendChild(linha);
+          });
+        });
+      
+        function removerCliente(index) {
+  let clientes = JSON.parse(localStorage.getItem('clientes')) || [];
+  clientes.splice(index, 1);
+  localStorage.setItem('clientes', JSON.stringify(clientes));
+  location.reload();
+}
 
-  function editar(index) {
-    localStorage.setItem("editandoIndex", index);
-    window.location.href = "crm_add_cliente.html";
-  }
-
-  renderClientes();
-</script>
-
+      </script>
+      
 </body>
 
 </html>

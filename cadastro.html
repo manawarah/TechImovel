@@ -191,6 +191,35 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          const form = document.querySelector('form'); // Certifique-se de que há um <form> no HTML
+      
+          form.addEventListener('submit', function (e) {
+            e.preventDefault();
+      
+            const nome = document.querySelector('input[name="nome"]').value.trim();
+            const contato = document.querySelector('input[name="contato"]').value.trim();
+            const email = document.querySelector('input[name="email"]').value.trim();
+            const login = document.querySelector('input[name="login"]').value.trim();
+            const senha = document.querySelector('input[name="senha"]').value;
+            const creci = document.querySelector('input[name="creci"]').value.trim();
+            const regiao = document.querySelector('input[name="regiao"]').value.trim();
+      
+            if (!nome || !contato || !email || !login || !senha || !creci || !regiao) {
+              alert("Por favor, preencha todos os campos.");
+              return;
+            }
+      
+            // Aqui você pode adicionar lógica para salvar os dados (ex: via fetch API para back-end)
+            console.log({ nome, contato, email, login, senha, creci, regiao});
+      
+            alert("Cadastro realizado com sucesso!");
+            window.location.href = "index.html"; // Redireciona para login após cadastro
+          });
+        });
+      </script>
+      
 </body>
 
 </html>

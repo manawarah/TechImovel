@@ -2,288 +2,380 @@
 <html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Painel CRM - TechImóvel</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <link rel="shortcut icon" href="./assets/logo/favicon_io/favicon.ico" type="image/x-icon">
-    <style>
-        * {
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel CRM - TechImóvel</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link rel="shortcut icon" href="./assets/logo/favicon_io/favicon.ico" type="image/x-icon">
+  <style>
+    * {
 
-            padding: 0;
-            border: 0;
-            box-sizing: border-box;
-            margin: 0;
-            font-size: 16px;
-            font-family: Poetsen One;
-        }
+      padding: 0;
+      border: 0;
+      box-sizing: border-box;
+      margin: 0;
+      font-size: 16px;
+      font-family: Poetsen One;
+    }
 
-        html {
-            justify-content: center;
-            align-items: center;
-        }
+    html {
+      justify-content: center;
+      align-items: center;
+    }
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: #f8f9fa;
-            margin: 0;
-            padding: 20px;
-        }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f8f9fa;
+      margin: 0;
+      padding: 20px;
+    }
 
-        h1 {
-            text-align: center;
-            margin-bottom: 30px;
-        }
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
 
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-bottom: 40px;
-        }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-bottom: 40px;
+    }
 
-        .card {
-            background: white;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
+    .card {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
 
-        .card h3 {
-            margin: 0;
-            font-size: 1.5em;
-            color: #333;
-        }
+    .card h3 {
+      margin: 0;
+      font-size: 1.5em;
+      color: #333;
+    }
 
-        .card p {
-            margin: 10px 0 0;
-            color: #777;
-        }
+    .card p {
+      margin: 10px 0 0;
+      color: #777;
+    }
 
-        .charts {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-        }
+    .charts {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
 
-        .chart-container {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-        }
+    .chart-container {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    }
 
-        @media (max-width: 768px) {
-            .charts {
-                grid-template-columns: 1fr;
-            }
-        }
+    @media (max-width: 768px) {
+      .charts {
+        grid-template-columns: 1fr;
+      }
+    }
 
-        .sidebar {
-            height: 100vh;
-            width: 250px;
-            position: fixed;
-            top: 0;
-            left: 0;
-            background-color: #0F123F;
-            padding-top: 2rem;
-            color: white;
-        }
+    .sidebar {
+      height: 100vh;
+      width: 250px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background-color: #0F123F;
+      padding-top: 2rem;
+      color: white;
+    }
 
-        .sidebar .nav-link {
-            color: white;
-            font-weight: 500;
-        }
+    .sidebar .nav-link {
+      color: white;
+      font-weight: 500;
+    }
 
-        .sidebar .nav-link:hover,
-        .sidebar .nav-link.active {
-            background-color: #00FF66;
-            color: #000;
-            border-radius: 8px;
-        }
+    .sidebar .nav-link:hover,
+    .sidebar .nav-link.active {
+      background-color: #00FF66;
+      color: #000;
+      border-radius: 8px;
+    }
 
-        .logo {
-            width: 120px;
-            border-radius: 80px;
-            display: block;
-            margin: 0 auto 2rem;
-        }
+    .logo {
+      width: 120px;
+      border-radius: 80px;
+      display: block;
+      margin: 0 auto 2rem;
+    }
 
-        .main-content {
-            margin-left: 250px;
-            padding: 2rem;
-        }
+    .main-content {
+      margin-left: 250px;
+      padding: 2rem;
+    }
 
-        @media (max-width: 991.98px) {
-            .sidebar {
-                position: fixed;
-                top: 0;
-                left: -250px;
-                width: 250px;
-                height: 100%;
-                transition: left 0.3s;
-                z-index: 1050;
-            }
+    @media (max-width: 991.98px) {
+      .sidebar {
+        position: fixed;
+        top: 0;
+        left: -250px;
+        width: 250px;
+        height: 100%;
+        transition: left 0.3s;
+        z-index: 1050;
+      }
 
-            .sidebar.show {
-                left: 0;
-            }
+      .sidebar.show {
+        left: 0;
+      }
 
-            .overlay {
-                display: none;
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100vw;
-                height: 100vh;
-                background-color: rgba(0, 0, 0, 0.5);
-                z-index: 1040;
-            }
+      .overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 1040;
+      }
 
-            .overlay.show {
-                display: block;
-            }
+      .overlay.show {
+        display: block;
+      }
 
-            .main-content {
-                margin-left: 0 !important;
-                padding-left: 1rem !important;
-                padding-right: 1rem !important;
-            }
-        }
-    </style>
+      .main-content {
+        margin-left: 0 !important;
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+      }
+    }
+  </style>
 </head>
 
 <body>
-    <!-- Botão do menu (mobile) -->
-    <nav class="navbar navbar-dark bg-dark d-lg-none">
-        <div class="container-fluid">
-            <button class="btn btn-outline-light" id="menuToggle"><i class="bi bi-list"></i></button>
-            <span class="navbar-brand mb-0 h1">Gerenciador de Clientes</span>
-        </div>
+  <!-- Botão do menu (mobile) -->
+  <nav class="navbar navbar-dark bg-dark d-lg-none">
+    <div class="container-fluid">
+      <button class="btn btn-outline-light" id="menuToggle"><i class="bi bi-list"></i></button>
+      <span class="navbar-brand mb-0 h1">Gerenciador de Clientes</span>
+    </div>
+  </nav>
+
+  <!-- Overlay -->
+  <div class="overlay" id="overlay"></div>
+
+  <!-- Sidebar -->
+  <div class="sidebar d-flex flex-column position-lg-static" id="sidebar">
+    <img src="./assets/logo/logo-techimovel.jfif" alt="Logo" class="logo" />
+    <nav class="nav flex-column px-3">
+      <a class="nav-link" href="./dashboard.html"><i class="bi bi-speedometer2"></i> Dashboard</a>
+      <a class="nav-link" href="./painel_crm.html"><i class="bi bi-person-lines-fill"></i> CRM</a>
+      <a class="nav-link" href="./parceria_corretor.html"><i class="bi bi-building"></i> Parceria</a>
+      <a class="nav-link" href="./construtora.html"><i class="bi bi-house-door-fill"></i> Construtora</a>
+      <a class="nav-link" href="./index.html"><i class="bi bi-box-arrow-right"></i> Sair</a>
     </nav>
+  </div>
+  <br>
 
-    <!-- Overlay -->
-    <div class="overlay" id="overlay"></div>
+  <div class="container">
+    <h2 class=" mb-4">Formulário Completo de Cliente</h2>
+    <form class="row g-3" id="clienteForm">
 
-    <!-- Sidebar -->
-    <div class="sidebar d-flex flex-column position-lg-static" id="sidebar">
-        <img src="./assets/logo/logo-techimovel.jfif" alt="Logo" class="logo" />
-        <nav class="nav flex-column px-3">
-            <a class="nav-link" href="./dashboard.html"><i class="bi bi-speedometer2"></i> Dashboard</a>
-            <a class="nav-link" href="./painel_crm.html"><i class="bi bi-person-lines-fill"></i> CRM</a>
-            <a class="nav-link" href="./parceria_corretor.html"><i class="bi bi-building"></i> Parceria</a>
-            <a class="nav-link" href="./construtora.html"><i class="bi bi-house-door-fill"></i> Construtora</a>
-            <a class="nav-link" href="./index.html"><i class="bi bi-box-arrow-right"></i> Sair</a>
-        </nav>
-    </div>
-    <br>
-    <div class="main-content">
-        <h2>Adicionar Cliente</h2>
-        <form method="post" class="row g-3 mt-3">
-            <div class="col-md-6">
-                <label for="nome" class="form-label">Nome</label>
-                <input type="text" class="form-control" id="nome" name="nome">
-            </div>
+      <!-- Informações Pessoais -->
+      <h4>🧍‍♂️ Informações Pessoais</h4>
+      <div class="col-md-6"><label class="form-label">Nome completo</label><input type="text" class="form-control"
+          name="nome"></div>
+      <div class="col-md-3"><label class="form-label">CPF/RG</label><input type="text" class="form-control"
+          name="documento"></div>
+      <div class="col-md-3"><label class="form-label">Data de nascimento</label><input type="date" class="form-control"
+          name="nascimento"></div>
+      <div class="col-md-4"><label class="form-label">Estado civil</label><input type="text" class="form-control"
+          name="estadoCivil"></div>
+      <div class="col-md-4"><label class="form-label">Profissão</label><input type="text" class="form-control"
+          name="profissao"></div>
+      <div class="col-md-4"><label class="form-label">Nacionalidade</label><input type="text" class="form-control"
+          name="nacionalidade"></div>
 
-            <div class="col-md-6">
-                <label for="status" class="form-label">Status de atendimento</label>
-                <select name="status" id="status" class="form-select">
-                    <option selected>Status</option>
-                    <option value="Lead">Lead</option>
-                    <option value="Atendimento">Atendimento</option>
-                    <option value="Visita">Visita</option>
-                    <option value="Confecção de Contrato">Confecção de Contrato</option>
-                    <option value="Entrega de chaves">Entrega de Chaves</option>
-                </select>
-            </div>
+      <!-- Contato -->
+      <h4 class="mt-4">📞 Contato</h4>
+      <div class="col-md-4"><label class="form-label">Celular (WhatsApp)</label><input type="tel" class="form-control"
+          name="whatsapp"></div>
+      <div class="col-md-4"><label class="form-label">Telefone fixo</label><input type="tel" class="form-control"
+          name="telefone"></div>
+      <div class="col-md-4"><label class="form-label">E-mail</label><input type="email" class="form-control"
+          name="email"></div>
+      <div class="col-12"><label class="form-label">Redes sociais</label><input type="text" class="form-control"
+          name="redes"></div>
 
-            <div class="col-12">
-                <label for="contato" class="form-label">Contato</label>
-                <input type="text" class="form-control" id="contato" name="contato">
-            </div>
+      <!-- Endereço -->
+      <h4 class="mt-4">🏠 Endereço</h4>
+      <div class="col-md-6"><label class="form-label">Endereço completo</label><input type="text" class="form-control"
+          name="endereco"></div>
+      <div class="col-md-3"><label class="form-label">Tempo de residência</label><input type="text" class="form-control"
+          name="tempoResidencia"></div>
+      <div class="col-md-3">
+        <label class="form-label">Imóvel</label>
+        <select class="form-select" name="tipoMoradia">
+          <option>Próprio</option>
+          <option>Alugado</option>
+        </select>
+      </div>
 
-            <div class="col-12">
-                <label for="interesse" class="form-label">Interesse</label>
-                <input type="text" class="form-control" id="interesse" name="interesse">
-            </div>
+      <!-- Interesse em Imóvel -->
+      <h4 class="mt-4">🔍 Interesse em Imóvel</h4>
+      <div class="col-md-6"><label class="form-label">Tipo de imóvel</label><input type="text" class="form-control"
+          name="tipoImovel"></div>
+      <div class="col-md-6"><label class="form-label">Finalidade</label><input type="text" class="form-control"
+          name="finalidade"></div>
+      <div class="col-md-3"><label class="form-label">Quartos</label><input type="number" class="form-control"
+          name="quartos"></div>
+      <div class="col-md-3"><label class="form-label">Banheiros</label><input type="number" class="form-control"
+          name="banheiros"></div>
+      <div class="col-md-3"><label class="form-label">Garagem</label><input type="number" class="form-control"
+          name="garagem"></div>
+      <div class="col-md-3"><label class="form-label">Área (m²)</label><input type="text" class="form-control"
+          name="area"></div>
+      <div class="col-md-6"><label class="form-label">Localizações de interesse</label><input type="text"
+          class="form-control" name="locais"></div>
+      <div class="col-md-6"><label class="form-label">Faixa de valor</label><input type="text" class="form-control"
+          name="faixaValor"></div>
+      <div class="col-12"><label class="form-label">Condições específicas</label><input type="text" class="form-control"
+          name="condicoes"></div>
 
-            <div class="col-md-6">
-                <label for="valor" class="form-label">Valor</label>
-                <input type="text" class="form-control" id="valor" name="valor">
-            </div>
+      <!-- Financeiro -->
+      <h4 class="mt-4">💰 Informações Financeiras</h4>
+      <div class="col-md-4"><label class="form-label">Renda mensal</label><input type="text" class="form-control"
+          name="renda"></div>
+      <div class="col-md-4"><label class="form-label">Composição de renda</label><input type="text" class="form-control"
+          name="composicao"></div>
+      <div class="col-md-4"><label class="form-label">Financiamento aprovado?</label>
+        <select class="form-select" name="financiamento">
+          <option>Sim</option>
+          <option>Não</option>
+        </select>
+      </div>
+      <div class="col-md-4"><label class="form-label">Entrada disponível</label><input type="text" class="form-control"
+          name="entrada"></div>
+      <div class="col-md-4"><label class="form-label">FGTS disponível?</label>
+        <select class="form-select" name="fgts">
+          <option>Sim</option>
+          <option>Não</option>
+        </select>
+      </div>
+      <div class="col-md-4"><label class="form-label">Imóvel para troca</label><input type="text" class="form-control"
+          name="troca"></div>
 
-            <div class="col-12 d-flex gap-2">
-                <button type="submit" class="btn btn-primary">Salvar Cliente</button>
-                <a href="./crm_gerenciador_cliente.html" class="btn btn-secondary">Voltar</a>
-            </div>
-        </form>
-    </div>
+      <!-- Funil de Vendas -->
+      <h4 class="mt-4">📆 Status no Funil de Vendas</h4>
+      <div class="col-md-4"><label class="form-label">Origem do contato</label><input type="text" class="form-control"
+          name="origem"></div>
+      <div class="col-md-4"><label class="form-label">Data de cadastro</label><input type="date" class="form-control"
+          name="dataCadastro"></div>
+      <div class="col-md-4"><label class="form-label">Responsável</label><input type="text" class="form-control"
+          name="responsavel"></div>
+      <div class="col-md-6"><label class="form-label">Etapa atual</label>
+        <select class="form-select" name="etapa">
+          <option>Novo lead</option>
+          <option>Qualificado</option>
+          <option>Visita agendada</option>
+          <option>Proposta</option>
+          <option>Fechado</option>
+          <option>Perdido</option>
+        </select>
+      </div>
+      <div class="col-md-6"><label class="form-label">Histórico de interações</label><textarea class="form-control"
+          rows="3" name="historico"></textarea></div>
+
+      <!-- Documentação -->
+      <h4 class="mt-4">🗂️ Documentação</h4>
+      <div class="col-md-4"><label class="form-label">Documentos enviados?</label>
+        <select class="form-select" name="docsEnviados">
+          <option>Sim</option>
+          <option>Não</option>
+        </select>
+      </div>
+      <div class="col-md-4"><label class="form-label">Documentos pendentes</label><input type="text"
+          class="form-control" name="pendentes"></div>
+      <div class="col-md-4"><label class="form-label">Comprovantes</label><input type="text" class="form-control"
+          name="comprovantes"></div>
+
+      <!-- Observações -->
+      <h4 class="mt-4">📝 Observações adicionais</h4>
+      <div class="col-12"><textarea class="form-control" rows="4" name="observacoes"></textarea></div>
+
+      <div class="col-12 d-flex gap-2">
+        <button type="submit" class="btn btn-primary">Salvar Cliente</button>
+        <a href="./crm_gerenciador_cliente.html" class="btn btn-secondary">Voltar</a>
+      </div>
+    </form>
+  </div>
 
 
 
-    <footer style=" color: #222; text-align: center; padding: 20px;">
-        <p>&copy; 2025 Manawarah. Todos os direitos reservados.</p>
-    </footer>
+  <footer style=" color: #222; text-align: center; padding: 20px;">
+    <p>&copy; 2025 Manawarah. Todos os direitos reservados.</p>
+  </footer>
 
 
 
-    <script>
-        const toggleBtn = document.getElementById('menuToggle');
-        const sidebar = document.getElementById('sidebar');
-        const overlay = document.getElementById('overlay');
+  <script>
+    const toggleBtn = document.getElementById('menuToggle');
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('overlay');
 
-        toggleBtn.addEventListener('click', () => {
-            sidebar.classList.toggle('show');
-            overlay.classList.toggle('show');
-        });
+    toggleBtn.addEventListener('click', () => {
+      sidebar.classList.toggle('show');
+      overlay.classList.toggle('show');
+    });
 
-        overlay.addEventListener('click', () => {
-            sidebar.classList.remove('show');
-            overlay.classList.remove('show');
-        });
-    </script>
+    overlay.addEventListener('click', () => {
+      sidebar.classList.remove('show');
+      overlay.classList.remove('show');
+    });
+  </script>
 
-<script>
+  <script>
     document.querySelector("form").addEventListener("submit", function (e) {
       e.preventDefault();
-  
+
       const nome = document.getElementById("nome").value.trim();
       const status = document.getElementById("status").value;
       const contato = document.getElementById("contato").value.trim();
       const interesse = document.getElementById("interesse").value.trim();
       const valor = document.getElementById("valor").value.trim();
-  
+
       if (!nome || !status || !contato || !interesse || !valor) {
         alert("Preencha todos os campos!");
         return;
       }
-  
+
       const cliente = { nome, status, contato, interesse, valor };
-  
+
       const clientes = JSON.parse(localStorage.getItem("clientes")) || [];
       clientes.push(cliente);
       localStorage.setItem("clientes", JSON.stringify(clientes));
-  
+
       alert("Cliente salvo com sucesso!");
       window.location.href = "crm_gerenciador_cliente.html";
     });
   </script>
 
-<script>
+  <script>
     const editandoIndex = localStorage.getItem("editandoIndex");
-  
+
     if (editandoIndex !== null) {
       const clientes = JSON.parse(localStorage.getItem("clientes"));
       const cliente = clientes[editandoIndex];
-  
+
       document.getElementById("nome").value = cliente.nome;
       document.getElementById("status").value = cliente.status;
       document.getElementById("contato").value = cliente.contato;
       document.getElementById("interesse").value = cliente.interesse;
       document.getElementById("valor").value = cliente.valor;
-  
+
       document.querySelector("form").addEventListener("submit", function () {
         clientes[editandoIndex] = {
           nome: document.getElementById("nome").value,
@@ -297,7 +389,7 @@
       });
     }
   </script>
-  
+
 </body>
 
 </html>

@@ -198,10 +198,31 @@
           <thead class="table-dark">
             <tr>
               <th>Nome</th>
-              <th>Status Atendimento</th>
-              <th>Contato</th>
-              <th>Interesse</th>
-              <th>Valor</th>
+              <th>CPF/CNPJ</th>
+              <th>Data de nascimento</th>
+              <th>Sexo</th>
+              <th>Estado Civil</th>
+              <th>E-mail</th>
+              <th>Telefone fixo</th>
+              <th>Celular / WhatsApp</th>
+              <th>CEP</th>
+              <th>Logradouro</th>
+              <th>Número</th>
+              <th>Complemento</th>
+              <th>Bairro</th>
+              <th>Cidade</th>
+              <th>Estado</th>
+              <th>Empresa</th>
+              <th>Cargo</th>
+              <th>Área de Atuação</th>
+              <th>Cnpj</th>
+              <th>Inscrição Estadual / Municipal</th>
+              <th>Tipo de Cliente</th>
+              <th>Categoria / Segmento</th>
+              <th>Origem do contato</th>
+              <th>Status do cliente</th>
+              <th>Notas ou comentários livres</th>
+              <th>Interesses específicos / necessidades</th>
               <th>Ações</th>
             </tr>
           </thead>
@@ -234,36 +255,59 @@
         document.addEventListener('DOMContentLoaded', () => {
           const tabela = document.querySelector('tbody');
           const clientes = JSON.parse(localStorage.getItem('clientes')) || [];
-      
+
           clientes.forEach((cliente, index) => {
             const linha = document.createElement('tr');
-      
+
             linha.innerHTML = `
   <td>${cliente.nome}</td>
-  <td>${cliente.status}</td>
-  <td>${cliente.contato}</td>
-  <td>${cliente.interesse}</td>
-  <td>${cliente.valor}</td>
+  <td>${cliente.cpfCNPJ}</td>
+  <td>${cliente.datanascimento}</td>
+  <td>${cliente.sexo}</td>
+  <td>${cliente.estadocivil}</td>
+  <td>${cliente.email}</td>
+  <td>${cliente.telefone}</td>
+  <td>${cliente.celular}</td>
+  <td>${cliente.cep}</td>
+  <td>${cliente.logradouro}</td>
+  <td>${cliente.numero}</td>
+  <td>${cliente.complemento}</td>
+  <td>${cliente.bairro}</td>
+  <td>${cliente.cidade}</td>
+  <td>${cliente.estado}</td>
+  <td>${cliente.empresa}</td>
+  <td>${cliente.cargo}</td>
+  <td>${cliente.areaatuacao}</td>
+  <td>${cliente.cnpj}</td>
+  <td>${cliente.inscricao_estadual_municipal}</td>
+  <td>${cliente.tipoCliente}</td>
+  <td>${cliente.categoriaSegmento}</td>
+  <td>${cliente.origemContato}</td>
+  <td>${cliente.statusCliente}</td>
+  <td>${cliente.notas}</td>
+  <td>${cliente.necessidade}</td>
+
   <td>
+            <a class="btn btn-sm btn-primary" href="./link.html?edit=${index}">Vizualizar</a>
         <a class="btn btn-sm btn-warning" href="./crm_add_cliente.html?edit=${index}">Editar</a>
     <button class="btn btn-sm btn-danger" onclick="removerCliente(${index})">Excluir</button>
 
   </td>
 `;
-      
-tabela.appendChild(linha);
+
+            tabela.appendChild(linha);
           });
         });
-      
+
         function removerCliente(index) {
-  let clientes = JSON.parse(localStorage.getItem('clientes')) || [];
-  clientes.splice(index, 1);
-  localStorage.setItem('clientes', JSON.stringify(clientes));
-  location.reload();
-}
+          let clientes = JSON.parse(localStorage.getItem('clientes')) || [];
+          clientes.splice(index, 1);
+          localStorage.setItem('clientes', JSON.stringify(clientes));
+          location.reload();
+        }
 
       </script>
-      
+
 </body>
 
 </html>

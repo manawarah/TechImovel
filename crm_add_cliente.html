@@ -181,43 +181,188 @@
     <br>
     <div class="main-content">
         <h2>Adicionar Cliente</h2>
+
         <form method="post" class="row g-3 mt-3">
+            <h4>🙍‍♂️ Dados Pessoais</h4>
             <div class="col-md-6">
-                <label for="nome" class="form-label">Nome</label>
+                <label for="nome" class="form-label">Nome Completo</label>
                 <input type="text" class="form-control" id="nome" name="nome">
             </div>
 
             <div class="col-md-6">
-                <label for="status" class="form-label">Status de atendimento</label>
-                <select name="status" id="status" class="form-select">
-                    <option selected>Status</option>
-                    <option value="Lead">Lead</option>
-                    <option value="Atendimento">Atendimento</option>
-                    <option value="Visita">Visita</option>
-                    <option value="Confecção de Contrato">Confecção de Contrato</option>
-                    <option value="Entrega de chaves">Entrega de Chaves</option>
-                </select>
-            </div>
-
-            <div class="col-12">
-                <label for="contato" class="form-label">Contato</label>
-                <input type="text" class="form-control" id="contato" name="contato">
-            </div>
-
-            <div class="col-12">
-                <label for="interesse" class="form-label">Interesse</label>
-                <input type="text" class="form-control" id="interesse" name="interesse">
+                <label for="cpfNPJ" class="form-label">CPF/CNPJ</label>
+                <input type="text" class="form-control" id="cpfCNPJ" name="cpfCNPJ">
             </div>
 
             <div class="col-md-6">
-                <label for="valor" class="form-label">Valor</label>
-                <input type="text" class="form-control" id="valor" name="valor">
+                <label for="datanascimento" class="form-label">Data de nascimento</label>
+                <input type="date" class="form-control" id="datanascimento" name="datanascimento">
+            </div>
+
+            <div class="col-md-6">
+                <label for="sexo" class="form-label">Sexo</label>
+                <select name="sexo" id="sexo" class="form-select">
+                    <option selected>Sexo</option>
+                    <option value="Masculino">Masculino</option>
+                    <option value="Femenino">Femenino</option>
+                </select>
+            </div>
+
+            <div class="col-md-6">
+                <label for="estadocivil" class="form-label">Estado Civil</label>
+                <select name="estadocivil" id="estadocivil" class="form-select">
+                    <option selected>Estado Civil</option>
+                    <option value="Solteiro(a)">Solteiro(a)</option>
+                    <option value="Casado(a)">Casado(a)</option>
+                    <option value="Separado(a) judicialmente">Separado(a) judicialmente</option>
+                    <option value="Divorciado(a)">Divorciado(a)</option>
+                    <option value="Viúvo(a)">Viúvo(a)</option>
+                    <option value="União estável">Femenino</option>
+                </select>
+            </div>
+            <br><br><br><br>
+            <h4>📞 Contato</h4>
+
+            <div class="col-md-6">
+                <label for="email" class="form-label">E-mail</label>
+                <input type="email" class="form-control" id="email" name="email">
+            </div>
+
+            <div class="col-md-6">
+                <label for="telefone" class="form-label">Telefone fixo</label>
+                <input type="telefone" class="form-control" id="telefone" name="telefone">
+            </div>
+
+            <div class="col-md-6">
+                <label for="celular" class="form-label">Celular / WhatsApp</label>
+                <input type="celular" class="form-control" id="celular" name="celular">
+            </div>
+
+            <br><br><br><br>
+            <h4>🏠 Endereço</h4>
+
+            <div class="col-md-6">
+                <label for="cep" class="form-label">Cep</label>
+                <input type="cep" class="form-control" id="cep" name="cep">
+            </div>
+
+            <div class="col-md-6">
+                <label for="logradouro" class="form-label">Logradouro</label>
+                <input type="logradouro" class="form-control" id="logradouro" name="logradouro">
+            </div>
+
+            <div class="col-md-6">
+                <label for="numero" class="form-label">Número</label>
+                <input type="numero" class="form-control" id="numero" name="numero">
+            </div>
+
+            <div class="col-md-6">
+                <label for="complemento" class="form-label">Complemento</label>
+                <input type="complemento" class="form-control" id="complemento" name="complemento">
+            </div>
+
+            <div class="col-md-6">
+                <label for="bairro" class="form-label">Bairro</label>
+                <input type="bairro" class="form-control" id="bairro" name="bairro">
+            </div>
+
+            <div class="col-md-6">
+                <label for="cidade" class="form-label">Cidade</label>
+                <input type="cidade" class="form-control" id="cidade" name="cidade">
+            </div>
+
+            <div class="col-md-6">
+                <label for="estado" class="form-label">Estado</label>
+                <input type="estado" class="form-control" id="estado" name="estado">
+            </div>
+
+            <br><br><br><br>
+            <h4>🏢 Dados Profissionais / Comerciais</h4>
+
+            <div class="col-md-6">
+                <label for="empresa" class="form-label">Empresa</label>
+                <input type="empresa" class="form-control" id="empresa" name="empresa">
+            </div>
+
+            <div class="col-md-6">
+                <label for="cargo" class="form-label">Cargo</label>
+                <input type="cargo" class="form-control" id="cargo" name="cargo">
+            </div>
+
+            <div class="col-md-6">
+                <label for="areaatuacao" class="form-label">Área de Atuação</label>
+                <input type="areaatuacao" class="form-control" id="areaatuacao" name="areaatuacao">
+            </div>
+
+            <div class="col-md-6">
+                <label for="cnpj" class="form-label">Cnpj</label>
+                <input type="cnpj" class="form-control" id="cnpj" name="cnpj">
+            </div>
+
+            
+            <div class="col-md-6">
+                <label for="inscricao_estadual_municipal" class="form-label">Inscricao Estadual Municipal</label>
+                <input type="inscricao_estadual_municipal" class="form-control" id="inscricao_estadual_municipal" name="inscricao_estadual_municipal">
+            </div>
+
+            <br><br><br><br>
+            <h4>ℹ️ Informações Comerciais</h4>
+
+            <div class="col-md-6">
+                <label for="tipoCliente" class="form-label">Tipo Cliente</label>
+                <select name="tipoCliente" id="tipoCliente" class="form-select">
+                    <option selected>Tipo Cliente</option>
+                    <option value="PessoaFísica">Pessoa Física</option>
+                    <option value="PessoaJurídica">Pessoa Jurídica</option>
+                </select>
+            </div>
+                        
+            <div class="col-md-6">
+                <label for="categoriaSegmento" class="form-label">Categoria / Segmento</label>
+                <input type="categoriaSegmento" class="form-control" id="categoriaSegmento" name="categoriaSegmento">
+            </div>
+            
+            <div class="col-md-6">
+                <label for="origemContato" class="form-label">Origem do contato</label>
+                <select name="origemContato" id="origemContato" class="form-select">
+                    <option selected>Origem do contato</option>
+                    <option value="Indicação">Indicação</option>
+                    <option value="Site">Site</option>
+                    <option value="Redes Sociais">Redes Sociais</option>
+                    <option value="Outro">Outro</option>
+                </select>
+            </div>
+
+            <div class="col-md-6">
+                <label for="statusCliente" class="form-label">Status do cliente</label>
+                <select name="statusCliente" id="statusCliente" class="form-select">
+                    <option selected>Status do cliente</option>
+                    <option value="Novo">Novo</option>
+                    <option value="Ativo">Ativo</option>
+                    <option value="Inativo">Inativo</option>
+                    <option value="Potencial">Potencial</option>
+                </select>
+            </div>
+            <br><br><br><br>
+            <h4>🗒️ Observações adicionais</h4>
+
+            <div class="col-md-6">
+                <label for="notas" class="form-label">Notas ou comentários livres</label>
+                    <textarea type="notas" class="form-control" id="notas" name="notas"></textarea>
+            </div>
+
+            <div class="col-md-6">
+                <label for="necessidade" class="form-label">Interesses específicos / necessidades</label>
+                    <textarea type="necessidade" class="form-control" id="necessidade" name="necessidade"></textarea>
             </div>
 
             <div class="col-12 d-flex gap-2">
                 <button type="submit" class="btn btn-primary">Salvar Cliente</button>
                 <a href="./crm_gerenciador_cliente.html" class="btn btn-secondary">Voltar</a>
             </div>
+
+            
+
         </form>
     </div>
 
@@ -247,47 +392,93 @@
 
     <!-- Dados do formulário do Add cliente pegando valores e jogando para a tabela -->
     <script>
-      const params = new URLSearchParams(window.location.search);
-      const editIndex = params.get('edit');
-    
-      if (editIndex !== null) {
-        const clientes = JSON.parse(localStorage.getItem('clientes')) || [];
-        const cliente = clientes[editIndex];
-    
-        if (cliente) {
-          document.getElementById('nome').value = cliente.nome;
-          document.getElementById('status').value = cliente.status;
-          document.getElementById('contato').value = cliente.contato;
-          document.getElementById('interesse').value = cliente.interesse;
-          document.getElementById('valor').value = cliente.valor;
-        }
-      }
-    
-      document.querySelector('form').addEventListener('submit', function (e) {
-        e.preventDefault();
-    
-        const cliente = {
-          nome: document.getElementById('nome').value,
-          status: document.getElementById('status').value,
-          contato: document.getElementById('contato').value,
-          interesse: document.getElementById('interesse').value,
-          valor: document.getElementById('valor').value
-        };
-    
-        let clientes = JSON.parse(localStorage.getItem('clientes')) || [];
-    
+        const params = new URLSearchParams(window.location.search);
+        const editIndex = params.get('edit');
+
         if (editIndex !== null) {
-          clientes[editIndex] = cliente; // Edita
-        } else {
-          clientes.push(cliente); // Adiciona novo
+            const clientes = JSON.parse(localStorage.getItem('clientes')) || [];
+            const cliente = clientes[editIndex];
+
+            if (cliente) {
+                document.getElementById('nome').value = cliente.nome;
+                document.getElementById('cpfCNPJ').value = cliente.cpfCNPJ;
+                document.getElementById('datanascimento').value = cliente.datanascimento;
+                document.getElementById('sexo').value = cliente.sexo;
+                document.getElementById('estadocivil').value = cliente.estadocivil;
+                document.getElementById('email').value = cliente.email;
+                document.getElementById('telefone').value = cliente.telefone;
+                document.getElementById('celular').value = cliente.celular;
+                document.getElementById('cep').value = cliente.cep;
+                document.getElementById('logradouro').value = cliente.logradouro;
+                document.getElementById('numero').value = cliente.numero;
+                document.getElementById('complemento').value = cliente.complemento;
+                document.getElementById('bairro').value = cliente.bairro;
+                document.getElementById('cidade').value = cliente.cidade;
+                document.getElementById('estado').value = cliente.estado;
+                document.getElementById('empresa').value = cliente.empresa;
+                document.getElementById('cargo').value = cliente.cargo;
+                document.getElementById('areaatuacao').value = cliente.areaatuacao;
+                document.getElementById('cnpj').value = cliente.cnpj;
+                document.getElementById('inscricao_estadual_municipal').value = cliente.inscricao_estadual_municipal;
+                document.getElementById('tipoCliente').value = cliente.tipoCliente;
+                document.getElementById('categoriaSegmento').value = cliente.categoriaSegmento;
+                document.getElementById('origemContato').value = cliente.origemContato;
+                document.getElementById('statusCliente').value = cliente.statusCliente;
+                document.getElementById('notas').value = cliente.notas;
+                document.getElementById('necessidade').value = cliente.necessidade;
+
+
+            }
         }
-    
-        localStorage.setItem('clientes', JSON.stringify(clientes));
-        window.location.href = './crm_gerenciador_cliente.html';
-      });
+
+        document.querySelector('form').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const cliente = {
+                nome: document.getElementById('nome').value,
+                cpfCNPJ: document.getElementById('cpfCNPJ').value,
+                datanascimento: document.getElementById('datanascimento').value,
+                sexo: document.getElementById('sexo').value,
+                estadocivil: document.getElementById('estadocivil').value,
+                email: document.getElementById('email').value,
+                telefone: document.getElementById('telefone').value,
+                celular: document.getElementById('celular').value,
+                cep: document.getElementById('cep').value,
+                logradouro: document.getElementById('logradouro').value,
+                numero: document.getElementById('numero').value,
+                complemento: document.getElementById('complemento').value,
+                bairro: document.getElementById('bairro').value,
+                cidade: document.getElementById('cidade').value,
+                estado: document.getElementById('estado').value,
+                empresa: document.getElementById('empresa').value,
+                cargo: document.getElementById('cargo').value,
+                areaatuacao: document.getElementById('areaatuacao').value,
+                cnpj: document.getElementById('cnpj').value,
+                inscricao_estadual_municipal: document.getElementById('inscricao_estadual_municipal').value,
+                tipoCliente: document.getElementById('tipoCliente').value,
+                categoriaSegmento: document.getElementById('categoriaSegmento').value,
+                origemContato: document.getElementById('origemContato').value,
+                statusCliente: document.getElementById('statusCliente').value,
+                notas: document.getElementById('notas').value,
+                necessidade: document.getElementById('necessidade').value,
+
+
+            };
+
+            let clientes = JSON.parse(localStorage.getItem('clientes')) || [];
+
+            if (editIndex !== null) {
+                clientes[editIndex] = cliente; // Edita
+            } else {
+                clientes.push(cliente); // Adiciona novo
+            }
+
+            localStorage.setItem('clientes', JSON.stringify(clientes));
+            window.location.href = './crm_gerenciador_cliente.html';
+        });
     </script>
-    
-    
+
+
 </body>
 
 </html>

@@ -225,6 +225,46 @@
       overlay.classList.remove('show');
     });
   </script>
+
+<script>
+  const tbody = document.querySelector("tbody");
+  let imoveis = JSON.parse(localStorage.getItem("imoveis")) || [];
+
+  function renderImoveis() {
+    tbody.innerHTML = "";
+    imoveis.forEach((imovel, index) => {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td>${imovel.residencial}</td>
+        <td>${imovel.quartos}</td>
+        <td>${imovel.valor}</td>
+        <td>${imovel.bairro}</td>
+        <td>${imovel.pretencao}</td>
+        <td>
+          <button class="btn btn-warning btn-sm" onclick="editarImovel(${index})">Editar</button>
+          <button class="btn btn-danger btn-sm" onclick="removerImovel(${index})">Remover</button>
+        </td>
+      `;
+      tbody.appendChild(tr);
+    });
+  }
+
+  function editarImovel(index) {
+    localStorage.setItem("editandoImovel", index);
+    window.location.href = "crm_add_imovel.html";
+  }
+
+  function removerImovel(index) {
+    if (confirm("Deseja remover este imóvel?")) {
+      imoveis.splice(index, 1);
+      localStorage.setItem("imoveis", JSON.stringify(imoveis));
+      renderImoveis();
+    }
+  }
+
+  renderImoveis();
+</script>
+
 </body>
 
 </html>

@@ -223,6 +223,11 @@
     </div>
 
 
+
+    <footer style=" color: #222; text-align: center; padding: 20px;">
+        <p>&copy; 2025 Manawarah. Todos os direitos reservados.</p>
+    </footer>
+
     <script>
         const toggleBtn = document.getElementById('menuToggle');
         const sidebar = document.getElementById('sidebar');
@@ -238,11 +243,52 @@
             overlay.classList.remove('show');
         });
     </script>
-    <footer style=" color: #222; text-align: center; padding: 20px;">
-        <p>&copy; 2025 Manawarah. Todos os direitos reservados.</p>
-    </footer>
 
-
+<script>
+    const form = document.querySelector("form");
+    const editandoIndex = localStorage.getItem("editandoImovel");
+  
+    if (editandoIndex !== null) {
+      const imoveis = JSON.parse(localStorage.getItem("imoveis")) || [];
+      const imovel = imoveis[editandoIndex];
+  
+      document.getElementById("residencial").value = imovel.residencial;
+      document.getElementById("quartos").value = imovel.quartos;
+      document.getElementById("valor").value = imovel.valor;
+      document.getElementById("bairro").value = imovel.bairro;
+      document.getElementById("pretencao").value = imovel.pretencao;
+    }
+  
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+  
+      const residencial = document.getElementById("residencial").value.trim();
+      const quartos = document.getElementById("quartos").value.trim();
+      const valor = document.getElementById("valor").value.trim();
+      const bairro = document.getElementById("bairro").value.trim();
+      const pretencao = document.getElementById("pretencao").value.trim();
+  
+      if (!residencial || !quartos || !valor || !bairro || !pretencao) {
+        alert("Preencha todos os campos!");
+        return;
+      }
+  
+      const imovel = { residencial, quartos, valor, bairro, pretencao };
+      const imoveis = JSON.parse(localStorage.getItem("imoveis")) || [];
+  
+      if (editandoIndex !== null) {
+        imoveis[editandoIndex] = imovel;
+        localStorage.removeItem("editandoImovel");
+      } else {
+        imoveis.push(imovel);
+      }
+  
+      localStorage.setItem("imoveis", JSON.stringify(imoveis));
+      alert("Imóvel salvo com sucesso!");
+      window.location.href = "crm_gerenciador_imoveis.html";
+    });
+  </script>
+  
 </body>
 
 </html>

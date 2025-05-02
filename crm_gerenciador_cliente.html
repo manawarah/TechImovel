@@ -227,6 +227,46 @@
           overlay.classList.remove('show');
         });
       </script>
+
+<script>
+  const tbody = document.querySelector("tbody");
+  let clientes = JSON.parse(localStorage.getItem("clientes")) || [];
+
+  function renderClientes() {
+    tbody.innerHTML = "";
+    clientes.forEach((c, i) => {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td>${c.nome}</td>
+        <td>${c.status}</td>
+        <td>${c.contato}</td>
+        <td>${c.interesse}</td>
+        <td>${c.valor}</td>
+        <td>
+          <button class="btn btn-warning btn-sm" onclick="editar(${i})">Editar</button>
+          <button class="btn btn-danger btn-sm" onclick="remover(${i})">Remover</button>
+        </td>
+      `;
+      tbody.appendChild(tr);
+    });
+  }
+
+  function remover(index) {
+    if (confirm("Deseja realmente remover este cliente?")) {
+      clientes.splice(index, 1);
+      localStorage.setItem("clientes", JSON.stringify(clientes));
+      renderClientes();
+    }
+  }
+
+  function editar(index) {
+    localStorage.setItem("editandoIndex", index);
+    window.location.href = "crm_add_cliente.html";
+  }
+
+  renderClientes();
+</script>
+
 </body>
 
 </html>

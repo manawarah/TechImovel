@@ -244,6 +244,60 @@
             overlay.classList.remove('show');
         });
     </script>
+
+<script>
+    document.querySelector("form").addEventListener("submit", function (e) {
+      e.preventDefault();
+  
+      const nome = document.getElementById("nome").value.trim();
+      const status = document.getElementById("status").value;
+      const contato = document.getElementById("contato").value.trim();
+      const interesse = document.getElementById("interesse").value.trim();
+      const valor = document.getElementById("valor").value.trim();
+  
+      if (!nome || !status || !contato || !interesse || !valor) {
+        alert("Preencha todos os campos!");
+        return;
+      }
+  
+      const cliente = { nome, status, contato, interesse, valor };
+  
+      const clientes = JSON.parse(localStorage.getItem("clientes")) || [];
+      clientes.push(cliente);
+      localStorage.setItem("clientes", JSON.stringify(clientes));
+  
+      alert("Cliente salvo com sucesso!");
+      window.location.href = "crm_gerenciador_cliente.html";
+    });
+  </script>
+
+<script>
+    const editandoIndex = localStorage.getItem("editandoIndex");
+  
+    if (editandoIndex !== null) {
+      const clientes = JSON.parse(localStorage.getItem("clientes"));
+      const cliente = clientes[editandoIndex];
+  
+      document.getElementById("nome").value = cliente.nome;
+      document.getElementById("status").value = cliente.status;
+      document.getElementById("contato").value = cliente.contato;
+      document.getElementById("interesse").value = cliente.interesse;
+      document.getElementById("valor").value = cliente.valor;
+  
+      document.querySelector("form").addEventListener("submit", function () {
+        clientes[editandoIndex] = {
+          nome: document.getElementById("nome").value,
+          status: document.getElementById("status").value,
+          contato: document.getElementById("contato").value,
+          interesse: document.getElementById("interesse").value,
+          valor: document.getElementById("valor").value
+        };
+        localStorage.setItem("clientes", JSON.stringify(clientes));
+        localStorage.removeItem("editandoIndex");
+      });
+    }
+  </script>
+  
 </body>
 
 </html>

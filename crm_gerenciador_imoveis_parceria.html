@@ -183,9 +183,9 @@
   <br>
   <div class="main-content">
     <div class="d-flex justify-content-between align-items-center flex-wrap mb-3">
-      <h2>Gerenciador de Imóveis Parceria</h2>
+      <h2>Gerenciador de Imóveis em Parceria</h2>
       <div class="d-flex gap-2 flex-wrap">
-        <a href="./crm_add_imovel.html" class="btn btn-primary">Adicionar Imóvel</a>
+        <a href="./crm_add_imovel_parceria.html" class="btn btn-primary">Adicionar Imóvel em Parceria</a>
         <a href="./painel_crm.html" class="btn btn-secondary">Voltar</a>
       </div>
     </div>
@@ -225,6 +225,45 @@
       overlay.classList.remove('show');
     });
   </script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const imoveisParceria = JSON.parse(localStorage.getItem("imoveisParceria")) || [];
+    const tbody = document.querySelector("tbody");
+
+    imoveisParceria.forEach((imovel, index) => {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td>${imovel.residencial}</td>
+        <td>${imovel.quartos}</td>
+        <td>${imovel.valor}</td>
+        <td>${imovel.bairro}</td>
+        <td>${imovel.pretencao}</td>
+        <td>
+          <button class="btn btn-warning btn-sm" onclick="editarImovelParceria(${index})">Editar</button>
+          <button class="btn btn-danger btn-sm" onclick="removerImovelParceria(${index})">Remover</button>
+        </td>
+      `;
+      tbody.appendChild(tr);
+    });
+  });
+
+  function editarImovelParceria(index) {
+    localStorage.setItem("editandoImovelParceria", index);
+    window.location.href = "crm_add_imovel_parceria.html";
+  }
+
+  function removerImovelParceria(index) {
+    const imoveisParceria = JSON.parse(localStorage.getItem("imoveisParceria")) || [];
+    if (confirm("Deseja remover este imóvel em parceria?")) {
+      imoveisParceria.splice(index, 1);
+      localStorage.setItem("imoveisParceria", JSON.stringify(imoveisParceria));
+      location.reload();
+    }
+  }
+</script>
+
+
 </body>
 
 </html>

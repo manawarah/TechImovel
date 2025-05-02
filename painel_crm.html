@@ -201,12 +201,13 @@
           </div>
           <div class="card-body d-flex justify-content-between align-items-center">
             <div>
-              <h5>Clientes: 87</h5>
+              <h5>Clientes: <span id="totalClientes">0</span></h5>
             </div>
             <a href="./crm_gerenciador_cliente.html" class="btn btn-dark"><i class="bi bi-person-plus"></i></a>
           </div>
           <div class="card-footer text-center">
-            <p class="mb-0 text-sm"><span class="text-success fw-bold">+55%</span> do que na semana passada</p>
+            <p class="mb-0 text-sm"><span id="crescimentoClientes" class="text-success fw-bold">0%</span> do que na semana passada</p>
+
           </div>
         </div>
       </div>
@@ -221,12 +222,12 @@
           </div>
           <div class="card-body d-flex justify-content-between align-items-center">
             <div>
-              <h5>Imóveis: 378</h5>
+              <h5>Imóveis: <span id="totalImoveis">0</span></h5>
             </div>
             <a href="./crm_gerenciador_imoveis.html" class="btn btn-dark"><i class="bi bi-house-add"></i></a>
           </div>
           <div class="card-footer text-center">
-            <p class="mb-0 text-sm"><span class="text-success fw-bold">+55%</span> do que na semana passada</p>
+            <p class="mb-0 text-sm"><span id="crescimentoParceria" class="text-success fw-bold">0%</span> do que na semana passada</p>
           </div>
         </div>
       </div>
@@ -239,13 +240,15 @@
               Imóveis Parceria</h3>
           </div>
           <div class="card-body d-flex justify-content-between align-items-center">
-            <div>
-              <h5>Imóveis Parceria: 45</h5>
-            </div>
+            <div class="mb-3">
+              <h5>Total de Imóveis em Parceria: <span id="totalImoveisParceria">0</span></h5>
+            </div>                        
             <a href="./crm_gerenciador_imoveis_parceria.html" class="btn btn-dark"><i class="bi bi-houses"></i></a>
           </div>
           <div class="card-footer text-center">
-            <p class="mb-0 text-sm"><span class="text-success fw-bold">+55%</span> do que na semana passada</p>
+            <div class="card-footer text-center">
+              <p class="mb-0 text-sm"><span id="crescimentoParceria" class="text-success fw-bold">0%</span> do que na semana passada</p>
+            </div>
           </div>
         </div>
       </div>
@@ -319,6 +322,59 @@
       overlay.classList.remove('show');
     });
   </script>
+  <!-- ATUALIZA O NÚMERO DE CLIENTES MOSTRADO NO PAINEL CRM-->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const clientes = JSON.parse(localStorage.getItem("clientes")) || [];
+      document.getElementById("totalClientes").textContent = clientes.length;
+    });
+  </script>
+
+  <!-- ATUALIZA O NÚMERO DE IMÓVEIS MOSTRADO NO PAINEL CRM-->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const imoveis = JSON.parse(localStorage.getItem("imoveis")) || [];
+      document.getElementById("totalImoveis").textContent = imoveis.length;
+    });
+  </script>
+
+  <!-- ATUALIZA O NÚMERO DE IMÓVEIS PARCERIA MOSTRADO NO PAINEL CRM-->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const imoveisParceria = JSON.parse(localStorage.getItem("imoveisParceria")) || [];
+      document.getElementById("totalImoveisParceria").textContent = imoveisParceria.length;
+    });
+  </script>
+<!-- cálculo de crescimento clientes -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const clientes = JSON.parse(localStorage.getItem("clientes")) || [];
+    const agora = Date.now();
+    const umaSemana = 7 * 24 * 60 * 60 * 1000;
+
+    const ultimaSemana = clientes.filter(c => agora - c.dataCadastro <= umaSemana);
+    const penultimaSemana = clientes.filter(c =>
+      agora - c.dataCadastro > umaSemana && agora - c.dataCadastro <= 2 * umaSemana
+    );
+
+    const totalAtual = ultimaSemana.length;
+    const totalAnterior = penultimaSemana.length;
+
+    let crescimento = 0;
+
+    if (totalAnterior > 0) {
+      crescimento = ((totalAtual - totalAnterior) / totalAnterior) * 100;
+    } else if (totalAtual > 0) {
+      crescimento = 100; // 100% se não havia nenhum antes
+    }
+
+    const crescimentoEl = document.getElementById("crescimentoClientes");
+    crescimentoEl.textContent = `${crescimento.toFixed(1)}%`;
+    crescimentoEl.className = crescimento >= 0 ? "text-success fw-bold" : "text-danger fw-bold";
+  });
+</script>
+
+  
 
 </body>
 

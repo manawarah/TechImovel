@@ -182,43 +182,311 @@
         <h2>Cadastrar Imóvel no CRM</h2>
         <form action="#" enctype="multipart/form-data" method="POST" class="mt-4"
             onsubmit="event.preventDefault(); alert('Simulação de envio bem-sucedida!');">
-
+            <h4>📍 Localização</h4>
             <div class="mb-3">
-                <label for="residencial" class="form-label">Nome do Residencial</label>
-                <input type="text" class="form-control" id="residencial" name="residencial"
-                    placeholder="Ex: Residencial Sol Nascente" required>
-            </div>
-
-            <div class="mb-3">
-                <label for="quartos" class="form-label">Número de Quartos</label>
-                <input type="text" class="form-control" id="quartos" name="quartos" placeholder="Ex: 3" required>
-            </div>
-
-            <div class="mb-3">
-                <label for="valor" class="form-label">Valor</label>
-                <input type="text" class="form-control" id="valor" name="valor" placeholder="Ex: R$ 250.000" required>
+                <label for="endereco" class="form-label">Endereço</label>
+                <input type="text" class="form-control" id="endereco" name="endereco" placeholder="Ex: Rua, Av."
+                    required>
             </div>
 
             <div class="mb-3">
                 <label for="bairro" class="form-label">Bairro</label>
-                <input type="text" class="form-control" id="bairro" name="bairro" placeholder="Ex: Centro" required>
+                <input type="text" class="form-control" id="bairro" name="bairro"
+                    placeholder="Ex: Cabo Branco, Altiplano." required>
             </div>
 
             <div class="mb-3">
-                <label for="pretencao" class="form-label">Pretensão</label>
-                <input type="text" class="form-control" id="pretencao" name="pretencao" placeholder="Venda ou Aluguel"
-                    required>
+                <label for="cep" class="form-label">Cep</label>
+                <input type="text" class="form-control" id="cep" name="cep" placeholder="Ex: R$ 250.000" required>
             </div>
 
-            <div class="mb-4">
-                <label for="imagem" class="form-label">Imagem do Imóvel</label>
-                <input class="form-control" type="file" id="imagem" name="imagem">
+            <div class="mb-3">
+                <label for="cidade" class="form-label">Cidade</label>
+                <input type="text" class="form-control" id="cidade" name="cidade" placeholder="Ex: Centro" required>
             </div>
+
+            <div class="mb-3">
+                <label for="estado" class="form-label">Estado</label>
+                <input type="text" class="form-control" id="estado" name="estado" placeholder="UF" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="referencia" class="form-label">Referência</label>
+                <input type="text" class="form-control" id="referencia" name="referencia">
+            </div>
+
+            <h4>🏠 Características do Imóvel</h4>
+
+            <div class="mb-3">
+                <label for="tipo">Tipo</label>
+                <select class="form-select" name="tipo" id="tipo">
+                    <option selected>Tipo de imóvel</option>
+                    <option>Casa</option>
+                    <option>Apartamento</option>
+                    <option>Terreno</option>
+                    <option>Comercial</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="finalidade">Finalidade</label>
+                <select class="form-select" name="finalidade" id="finalidade">
+                    <option selected>Finalidade</option>
+                    <option>Venda</option>
+                    <option>Aluguel</option>
+                    <option>Temporada</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="area_total" class="form-label">Área Total</label>
+                <input type="number" class="form-control" id="area_total" name="area_total"
+                    placeholder="Área total (m²)" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="area_construida" class="form-label">Área Construida</label>
+                <input type="number" class="form-control" id="area_construida" name="area_construida"
+                    placeholder="Área construída" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="quartos">Quartos</label>
+                <select class="form-select" name="quartos" id="quartos">
+                    <option selected>0</option>
+                    <option>01</option>
+                    <option>02</option>
+                    <option>03</option>
+                    <option>04</option>
+                    <option>05</option>
+                    <option>06</option>
+                    <option>07</option>
+                    <option>08</option>
+                    <option>09</option>
+                    <option>10+</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="suites">Suítes</label>
+                <select class="form-select" name="suites" id="suites">
+                    <option selected>0</option>
+                    <option>01</option>
+                    <option>02</option>
+                    <option>03</option>
+                    <option>04</option>
+                    <option>05</option>
+                    <option>06</option>
+                    <option>07</option>
+                    <option>08</option>
+                    <option>09</option>
+                    <option>10+</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="banheiros">Banheiros</label>
+                <select class="form-select" name="banheiros" id="banheiros">
+                    <option selected>0</option>
+                    <option>01</option>
+                    <option>02</option>
+                    <option>03</option>
+                    <option>04</option>
+                    <option>05</option>
+                    <option>06</option>
+                    <option>07</option>
+                    <option>08</option>
+                    <option>09</option>
+                    <option>10+</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="vagas">Vagas</label>
+                <select class="form-select" name="vagas" id="vagas">
+                    <option selected>0</option>
+                    <option>01</option>
+                    <option>02</option>
+                    <option>03</option>
+                    <option>04</option>
+                    <option>05</option>
+                    <option>06</option>
+                    <option>07</option>
+                    <option>08</option>
+                    <option>09</option>
+                    <option>10+</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="andar" class="form-label">Andar</label>
+                <input type="number" class="form-control" id="andar" name="andar" placeholder="Andar" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="ano" class="form-label">Ano da Construção</label>
+                <input type="date" class="form-control" id="ano" name="ano" placeholder="Ano da Construção" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="mobiliado">Mobiliado?</label>
+                <select class="form-select" name="mobiliado" id="mobiliado">
+                    <option selected>S/N?</option>
+                    <option>Sim</option>
+                    <option>Não</option>
+                </select>
+            </div>
+
+            <h5>🛠️ Diferenciais</h5>
+
+            <div class="mb-3">
+                <label for="diferenciais" class="form-label">Diferenciais do imóvel</label>
+                <textarea type="diferenciais" class="form-control" id="diferenciais" name="diferenciais"
+                    placeholder="Ex: piscina, churrasqueira, ar-condicionado, etc." required></textarea>
+            </div>
+
+            <h5>💰 Valores</h5>
+
+            <div class="mb-3">
+                <label for="valor_venda" class="form-label">Valor da venda</label>
+                <input type="text" class="form-control" id="valor_venda" name="valor_venda"
+                    placeholder="Valor de venda">
+            </div>
+
+            <div class="mb-3">
+                <label for="valor_aluguel" class="form-label">Valor do Aluguel</label>
+                <input type="text" class="form-control" id="valor_aluguel" name="valor_aluguel"
+                    placeholder="Valor de aluguel">
+            </div>
+
+            <div class="mb-3">
+                <label for="iptu" class="form-label">IPTU</label>
+                <input type="text" class="form-control" id="iptu" name="iptu" placeholder="IPTU">
+            </div>
+
+            <div class="mb-3">
+                <label for="condominio" class="form-label">Condomínio</label>
+                <input type="text" class="form-control" id="condominio" name="condominio"
+                    placeholder="Valor do condominio">
+            </div>
+
+            <div class="mb-3">
+                <label for="financiamento">Financia?</label>
+                <select class="form-select" name="financiamento" id="financiamento">
+                    <option selected>Financia?</option>
+                    <option>Sim</option>
+                    <option>Não</option>
+                </select>
+            </div>
+
+
+            <div class="mb-3">
+                <label for="permuta">Permuta?</label>
+                <select class="form-select" name="permuta" id="permuta">
+                    <option selected>Permuta?</option>
+                    <option>Sim</option>
+                    <option>Não</option>
+                </select>
+            </div>
+
+            <h5>📸 Mídia</h5>
+
+            <div class="mb-3">
+                <label for="video_link" class="form-label">Vídeo Link</label>
+                <input type="url" class="form-control" name="video_link" id="video_link"
+                    placeholder="Link do vídeo ou tour virtual">
+            </div>
+
+            <h5>👤 Proprietário</h5>
+
+            <div class="mb-3">
+                <label for="proprietario" class="form-label">Proprietário</label>
+                <input type="text" class="form-control" name="proprietario" id="proprietario"
+                    placeholder="Nome completo">
+            </div>
+
+            <div class="mb-3">
+                <label for="telefone" class="form-label">Telefone</label>
+                <input type="text" class="form-control" name="telefone" id="telefone"
+                    aria-placeholder="Telefone / Whatsapp">
+            </div>
+
+            <div class="mb-3">
+                <label for="email" class="form-label">E-mail</label>
+                <input type="email" class="form-control" name="email" id="email" aria-placeholder="E-mail">
+            </div>
+
+            <div class="mb-3">
+                <label for="exclusividade" class="form-label">Exclusividade</label>
+                <select class="form-select" name="exclusividade" id="exclusividade">
+                    <option selected disabled>Possui exclusividade?</option>
+                    <option>Sim</option>
+                    <option>Não</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="placa" class="form-label">Placa</label>
+                <select class="form-select" name="placa" id="placa">
+                    <option selected disabled>Deseja divulgar com placa?</option>
+                    <option>Sim</option>
+                    <option>Não</option>
+                </select>
+            </div>
+
+            <h5>📄 Documentação</h5>
+
+            <div class="mb-3">
+                <label for="matricula" class="form-label">Matrícula</label>
+                <input type="text" class="form-control" name="matricula" id="matricula"
+                    placeholder="Número da matrícula">
+            </div>
+
+            <div class="mb-3">
+                <label for="cartorio" class="form-label">Cartório</label>
+                <input type="text" class="form-control" name="cartorio" id="cartorio"
+                    placeholder="Cartório de registro">
+            </div>
+
+            <div class="mb-3">
+                <label for="documentacao" class="form-label">Documentação</label>
+                <select class="form-select" name="documentacao" id="documentacao">
+                    <option selected disabled>Imóvel regularizado?</option>
+                    <option>Sim</option>
+                    <option>Não</option>
+                    <option>Parcial</option>
+                </select>
+            </div>
+
+            <h5>📆 Status da Captação</h5>
+
+            <div class="mb-3">
+                <label for="data_captacao" class="form-label">Data da captação</label>
+                <input type="date" class="form-control" name="data_captacao" id="data_captacao">
+            </div>
+
+            <div class="mb-3">
+                <label for="corretor" class="form-label">Corretor Responsável</label>
+                <input type="text" class="form-control" name="corretor" id="corretor"
+                    placeholder="Corretor responsável">
+            </div>
+
+            <div class="mb-3">
+                <label for="contrato" class="form-label">Contrato</label>
+                <select class="form-select" name="contrato" id="contrato">
+                    <option selected disabled>Tipo de contrato</option>
+                    <option>Exclusivo</option>
+                    <option>Não exclusivo</option>
+                </select>
+            </div>
+
 
             <div class="d-flex gap-2">
                 <button type="submit" class="btn btn-primary">Adicionar Imóvel</button>
                 <a href="./crm_gerenciador_imoveis.html" class="btn btn-secondary">Voltar</a>
             </div>
+
+
         </form>
     </div>
 
@@ -244,51 +512,130 @@
         });
     </script>
 
-<script>
-    const form = document.querySelector("form");
-    const editandoIndex = localStorage.getItem("editandoImovel");
-  
-    if (editandoIndex !== null) {
-      const imoveis = JSON.parse(localStorage.getItem("imoveis")) || [];
-      const imovel = imoveis[editandoIndex];
-  
-      document.getElementById("residencial").value = imovel.residencial;
-      document.getElementById("quartos").value = imovel.quartos;
-      document.getElementById("valor").value = imovel.valor;
-      document.getElementById("bairro").value = imovel.bairro;
-      document.getElementById("pretencao").value = imovel.pretencao;
-    }
-  
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
-  
-      const residencial = document.getElementById("residencial").value.trim();
-      const quartos = document.getElementById("quartos").value.trim();
-      const valor = document.getElementById("valor").value.trim();
-      const bairro = document.getElementById("bairro").value.trim();
-      const pretencao = document.getElementById("pretencao").value.trim();
-  
-      if (!residencial || !quartos || !valor || !bairro || !pretencao) {
-        alert("Preencha todos os campos!");
-        return;
-      }
-  
-      const imovel = { residencial, quartos, valor, bairro, pretencao };
-      const imoveis = JSON.parse(localStorage.getItem("imoveis")) || [];
-  
-      if (editandoIndex !== null) {
-        imoveis[editandoIndex] = imovel;
-        localStorage.removeItem("editandoImovel");
-      } else {
-        imoveis.push(imovel);
-      }
-  
-      localStorage.setItem("imoveis", JSON.stringify(imoveis));
-      alert("Imóvel salvo com sucesso!");
-      window.location.href = "crm_gerenciador_imoveis.html";
-    });
-  </script>
-  
+    <script>
+        const form = document.querySelector("form");
+        const editandoIndex = localStorage.getItem("editandoImovel");
+
+        if (editandoIndex !== null) {
+            const imoveis = JSON.parse(localStorage.getItem("imoveis")) || [];
+            const imovel = imoveis[editandoIndex];
+
+            document.getElementById("endereco").value = imovel.endereco;
+            document.getElementById("bairro").value = imovel.bairro;
+            document.getElementById("cep").value = imovel.cep;
+            document.getElementById("cidade").value = imovel.cidade;
+            document.getElementById("estado").value = imovel.estado;
+            document.getElementById("referencia").value = imovel.referencia;
+            document.getElementById("tipo").value = imovel.tipo;
+            document.getElementById("finalidade").value = imovel.finalidade;
+            document.getElementById("area_total").value = imovel.area_total;
+            document.getElementById("area_construida").value = imovel.area_construida;
+
+            document.getElementById("quartos").value = imovel.quartos;
+            document.getElementById("suites").value = imovel.suites;
+            document.getElementById("banheiros").value = imovel.banheiros;
+            document.getElementById("vagas").value = imovel.vagas;
+            document.getElementById("andar").value = imovel.andar;
+            document.getElementById("ano").value = imovel.ano;
+            document.getElementById("mobiliado").value = imovel.mobiliado;
+            document.getElementById("diferenciais").value = imovel.diferenciais;
+
+            document.getElementById("valor_venda").value = imovel.valor_venda;
+            document.getElementById("valor_aluguel").value = imovel.valor_aluguel;
+            document.getElementById("iptu").value = imovel.iptu;
+            document.getElementById("condominio").value = imovel.condominio;
+            document.getElementById("financiamento").value = imovel.financiamento;
+            document.getElementById("permuta").value = imovel.permuta;
+
+            document.getElementById("video_link").value = imovel.video_link;
+
+            document.getElementById("proprietario").value = imovel.proprietario;
+            document.getElementById("telefone").value = imovel.telefone;
+            document.getElementById("email").value = imovel.email;
+            document.getElementById("exclusividade").value = imovel.exclusividade;
+            document.getElementById("placa").value = imovel.placa;
+
+            document.getElementById("matricula").value = imovel.matricula;
+            document.getElementById("cartorio").value = imovel.cartorio;
+            document.getElementById("documentacao").value = imovel.documentacao;
+
+            document.getElementById("data_captacao").value = imovel.data_captacao;
+            document.getElementById("corretor").value = imovel.corretor;
+            document.getElementById("contrato").value = imovel.contrato;
+
+        }
+
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const endereco = document.getElementById("endereco").value.trim();
+            const bairro = document.getElementById("bairro").value.trim();
+            const cep = document.getElementById("cep").value.trim();
+            const cidade = document.getElementById("cidade").value.trim();
+            const estado = document.getElementById("estado").value.trim();
+            const referencia = document.getElementById("referencia").value.trim();
+            const tipo = document.getElementById("tipo").value.trim();
+            const finalidade = document.getElementById("finalidade").value.trim();
+            const area_total = document.getElementById("area_total").value.trim();
+            const area_construida = document.getElementById("area_construida").value.trim();
+
+            const quartos = document.getElementById("quartos").value.trim();
+            const suites = document.getElementById("suites").value.trim();
+            const banheiros = document.getElementById("banheiros").value.trim();
+            const vagas = document.getElementById("vagas").value.trim();
+            const andar = document.getElementById("andar").value.trim();
+            const ano = document.getElementById("ano").value.trim();
+            const mobiliado = document.getElementById("mobiliado").value.trim();
+
+            const diferenciais = document.getElementById("diferenciais").value.trim();
+
+            const valor_venda = document.getElementById("valor_venda").value.trim();
+            const valor_aluguel = document.getElementById("valor_aluguel").value.trim();
+            const iptu = document.getElementById("iptu").value.trim();
+            const condominio = document.getElementById("condominio").value.trim();
+            const financiamento = document.getElementById("financiamento").value.trim();
+            const permuta = document.getElementById("permuta").value.trim();
+
+            const video_link = document.getElementById("video_link").value.trim();
+
+            const proprietario = document.getElementById("proprietario").value.trim();
+            const telefone = document.getElementById("telefone").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const exclusividade = document.getElementById("exclusividade").value.trim();
+            const placa = document.getElementById("placa").value.trim();
+
+            const matricula = document.getElementById("matricula").value.trim();
+            const cartorio = document.getElementById("cartorio").value.trim();
+            const documentacao = document.getElementById("documentacao").value.trim();
+
+            const data_captacao = document.getElementById("data_captacao").value.trim();
+            const corretor = document.getElementById("corretor").value.trim();
+            const contrato = document.getElementById("contrato").value.trim();
+
+
+
+            if (!endereco || !bairro || !cep || !cidade || !estado || !referencia || !tipo || !finalidade || !area_total || !area_construida || !quartos || !suites || !banheiros || !vagas || !andar || !ano || !mobiliado || !diferenciais || !valor_venda || !valor_aluguel || !iptu || !condominio || !financiamento || !permuta || !video_link || !proprietario || !telefone || !email || !exclusividade || !placa || !matricula || !cartorio || !documentacao || !data_captacao || !corretor || !contrato
+            ) {
+                alert("Preencha todos os campos!");
+                return;
+            }
+
+            const imovel = { endereco, bairro, cep, cidade, estado, referencia, tipo, finalidade, area_total, area_construida, quartos, suites, banheiros, vagas, andar, ano, mobiliado, diferenciais, valor_venda, valor_aluguel, iptu, condominio, financiamento, permuta, video_link, proprietario, telefone, email, exclusividade, placa, matricula, cartorio, documentacao, data_captacao, corretor, contrato };
+            const imoveis = JSON.parse(localStorage.getItem("imoveis")) || [];
+
+            if (editandoIndex !== null) {
+                imoveis[editandoIndex] = imovel;
+                localStorage.removeItem("editandoImovel");
+            } else {
+                imoveis.push(imovel);
+            }
+
+            localStorage.setItem("imoveis", JSON.stringify(imoveis));
+            alert("Imóvel salvo com sucesso!");
+            window.location.href = "crm_gerenciador_imoveis.html";
+        });
+    </script>
+
 </body>
 
 </html>

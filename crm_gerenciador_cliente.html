@@ -198,9 +198,6 @@
           <thead class="table-dark">
             <tr>
               <th>Nome</th>
-              <th>CPF/CNPJ</th>
-              <th>E-mail</th>
-              <th>Celular / WhatsApp</th>
               <th>Status</th>
               <th>Ações</th>
             </tr>
@@ -263,9 +260,6 @@
 
             linha.innerHTML = `
       <td>${cliente.nome}</td>
-      <td>${cliente.cpfCNPJ}</td>
-      <td>${cliente.email}</td>
-      <td>${cliente.celular}</td>
       <td>${cliente.statusCliente}</td>
       <td>
         <button class="btn btn-sm btn-info" onclick="visualizarCliente(${index})" data-bs-toggle="modal" data-bs-target="#visualizarModal">Visualizar</button>

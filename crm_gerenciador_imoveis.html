@@ -171,12 +171,10 @@
       <table class="table table-hover table-bordered align-middle bg-white">
         <thead class="table-dark">
           <tr>
-            <th>Endereço</th>
             <th>Bairro</th>
-            <th>Cidade</th>
+            <th>Quartos</th>
             <th>Tipo</th>
-            <th>Finalidade</th>
-            <th>Valor da Venda</th>
+            <th>Valor</th>
             <th>Ações</th>
           </tr>
         </thead>
@@ -225,11 +223,9 @@
       imoveis.forEach((imovel, index) => {
         const tr = document.createElement("tr");
         tr.innerHTML = `
-          <td>${imovel.endereco}</td>
           <td>${imovel.bairro}</td>
-          <td>${imovel.cidade}</td>
+          <td>${imovel.quartos}</td>
           <td>${imovel.tipo}</td>
-          <td>${imovel.finalidade}</td>
           <td>${imovel.valor_venda}</td>
           <td>
             <button class="btn btn-info btn-sm" onclick="mostrarDetalhesImovel(${index})"><i class="bi bi-binoculars-fill"></i></button>

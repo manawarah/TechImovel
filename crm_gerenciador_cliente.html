@@ -262,9 +262,9 @@
       <td>${cliente.nome}</td>
       <td>${cliente.statusCliente}</td>
       <td>
-        <button class="btn btn-sm btn-info" onclick="visualizarCliente(${index})" data-bs-toggle="modal" data-bs-target="#visualizarModal">Visualizar</button>
-        <a class="btn btn-sm btn-warning" href="./crm_add_cliente.html?edit=${index}">Editar</a>
-        <button class="btn btn-sm btn-danger" onclick="removerCliente(${index})">Excluir</button>
+        <button class="btn btn-sm btn-info" onclick="visualizarCliente(${index})" data-bs-toggle="modal" data-bs-target="#visualizarModal"><i class="bi bi-binoculars-fill"></i></button>
+        <a class="btn btn-sm btn-warning" href="./crm_add_cliente.html?edit=${index}"><i class="bi bi-pencil-fill"></i></a>
+        <button class="btn btn-sm btn-danger" onclick="removerCliente(${index})"><i class="bi bi-trash3-fill"></i></button>
       </td>
     `;
 

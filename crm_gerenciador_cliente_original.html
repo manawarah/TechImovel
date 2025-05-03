@@ -199,36 +199,52 @@
             <tr>
               <th>Nome</th>
               <th>CPF/CNPJ</th>
+              <th>Data de nascimento</th>
+              <th>Sexo</th>
+              <th>Estado Civil</th>
               <th>E-mail</th>
+              <th>Telefone fixo</th>
               <th>Celular / WhatsApp</th>
-              <th>Status</th>
+              <th>CEP</th>
+              <th>Logradouro</th>
+              <th>Número</th>
+              <th>Complemento</th>
+              <th>Bairro</th>
+              <th>Cidade</th>
+              <th>Estado</th>
+              <th>Empresa</th>
+              <th>Cargo</th>
+              <th>Área de Atuação</th>
+              <th>Cnpj</th>
+              <th>Inscrição Estadual / Municipal</th>
+              <th>Tipo de Cliente</th>
+              <th>Categoria / Segmento</th>
+              <th>Origem do contato</th>
+              <th>Status do cliente</th>
+              <th>Notas ou comentários livres</th>
+              <th>Interesses específicos / necessidades</th>
               <th>Ações</th>
             </tr>
           </thead>
           <tbody>
           </tbody>
-
-
-
-
-        </table>
-
-
-      </div>
-
-      <div class="modal fade" id="visualizarModal" tabindex="-1" aria-labelledby="visualizarModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-scrollable modal-lg">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="visualizarModalLabel">Detalhes do Cliente</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
-            </div>
-            <div class="modal-body" id="modalDetalhesCliente">
-              <!-- Detalhes do cliente serão inseridos aqui -->
+          
+          <!-- Modal de Visualização -->
+          <div class="modal fade" id="visualizarModal" tabindex="-1" aria-labelledby="visualizarModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="visualizarModalLabel">Detalhes do Cliente</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body" id="modalDetalhesCliente">
+                  <!-- Detalhes do cliente serão inseridos aqui -->
+                </div>
+              </div>
             </div>
           </div>
-        </div>
+          
+        </table>
       </div>
       <footer style=" color: #222; text-align: center; padding: 20px;">
         <p>&copy; 2025 Manawarah. Todos os direitos reservados.</p>
@@ -247,13 +263,11 @@
           sidebar.classList.remove('show');
           overlay.classList.remove('show');
         });
-
       </script>
 
       <!-- Salvar os dados no localstorage captados do Add cliente para tabela -->
 
       <script>
-
         document.addEventListener('DOMContentLoaded', () => {
           const tabela = document.querySelector('tbody');
           const clientes = JSON.parse(localStorage.getItem('clientes')) || [];
@@ -262,33 +276,44 @@
             const linha = document.createElement('tr');
 
             linha.innerHTML = `
-      <td>${cliente.nome}</td>
-      <td>${cliente.cpfCNPJ}</td>
-      <td>${cliente.email}</td>
-      <td>${cliente.celular}</td>
-      <td>${cliente.statusCliente}</td>
-      <td>
-        <button class="btn btn-sm btn-info" onclick="visualizarCliente(${index})" data-bs-toggle="modal" data-bs-target="#visualizarModal">Visualizar</button>
+  <td>${cliente.nome}</td>
+  <td>${cliente.cpfCNPJ}</td>
+  <td>${cliente.datanascimento}</td>
+  <td>${cliente.sexo}</td>
+  <td>${cliente.estadocivil}</td>
+  <td>${cliente.email}</td>
+  <td>${cliente.telefone}</td>
+  <td>${cliente.celular}</td>
+  <td>${cliente.cep}</td>
+  <td>${cliente.logradouro}</td>
+  <td>${cliente.numero}</td>
+  <td>${cliente.complemento}</td>
+  <td>${cliente.bairro}</td>
+  <td>${cliente.cidade}</td>
+  <td>${cliente.estado}</td>
+  <td>${cliente.empresa}</td>
+  <td>${cliente.cargo}</td>
+  <td>${cliente.areaatuacao}</td>
+  <td>${cliente.cnpj}</td>
+  <td>${cliente.inscricao_estadual_municipal}</td>
+  <td>${cliente.tipoCliente}</td>
+  <td>${cliente.categoriaSegmento}</td>
+  <td>${cliente.origemContato}</td>
+  <td>${cliente.statusCliente}</td>
+  <td>${cliente.notas}</td>
+  <td>${cliente.necessidade}</td>
+
+  <td>
+            <a class="btn btn-sm btn-primary" href="./link.html?edit=${index}">Vizualizar</a>
         <a class="btn btn-sm btn-warning" href="./crm_add_cliente.html?edit=${index}">Editar</a>
-        <button class="btn btn-sm btn-danger" onclick="removerCliente(${index})">Excluir</button>
-      </td>
-    `;
+    <button class="btn btn-sm btn-danger" onclick="removerCliente(${index})">Excluir</button>
+
+  </td>
+`;
 
             tabela.appendChild(linha);
           });
         });
-
-        function visualizarCliente(index) {
-          const clientes = JSON.parse(localStorage.getItem('clientes')) || [];
-          const cliente = clientes[index];
-
-          const detalhes = Object.entries(cliente).map(([key, value]) => {
-            const formatado = key.replace(/_/g, ' ').replace(/([a-z])([A-Z])/g, '$1 $2');
-            return `<p><strong>${formatado}:</strong> ${value || '-'}</p>`;
-          }).join('');
-
-          document.getElementById('modalDetalhesCliente').innerHTML = detalhes;
-        }
 
         function removerCliente(index) {
           let clientes = JSON.parse(localStorage.getItem('clientes')) || [];
@@ -298,11 +323,8 @@
         }
 
       </script>
-<!-- Script Bootstrap para rodar o Modal -->
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-
-
+      
 
 </body>
 

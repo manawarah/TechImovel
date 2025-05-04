@@ -131,6 +131,15 @@
         padding-right: 1rem !important;
       }
     }
+
+    .container-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      /* espaçamento entre cards */
+      max-width: 100%;
+      justify-content: center;
+    }
   </style>
 </head>
 
@@ -168,7 +177,7 @@
     </div>
 
     <div class="table-responsive">
-      <div id="imovel-tbody"></div>
+      <div class="container-cards" class="row row-cols-1 row-cols-md-2 g-4" id="imovel-tbody"></div>
     </div>
   </div>
 

@@ -168,18 +168,7 @@
     </div>
 
     <div class="table-responsive">
-      <table class="table table-hover table-bordered align-middle bg-white">
-        <thead class="table-dark">
-          <tr>
-            <th>Bairro</th>
-            <th>Quartos</th>
-            <th>Tipo</th>
-            <th>Valor</th>
-            <th>Ações</th>
-          </tr>
-        </thead>
-        <tbody id="imovel-tbody"></tbody>
-      </table>
+      <div id="imovel-tbody"></div>
     </div>
   </div>
 
@@ -216,22 +205,35 @@
     });
 
     const tbody = document.getElementById("imovel-tbody");
-    const imoveis = JSON.parse(localStorage.getItem("imoveis")) || [];
+    let imoveis = JSON.parse(localStorage.getItem("imoveis")) || [];
 
     function renderImoveis() {
       tbody.innerHTML = "";
       imoveis.forEach((imovel, index) => {
-        const tr = document.createElement("tr");
+        const tr = document.createElement("div");
         tr.innerHTML = `
-          <td>${imovel.bairro}</td>
-          <td>${imovel.quartos}</td>
-          <td>${imovel.tipo}</td>
-          <td>R$ ${imovel.valor_venda}</td>
-          <td>
+          <div class="card" style="width: 18rem;">
+                <img src="..." class="card-img-top" alt="...">
+                  <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p>${imovel.bairro}</p>
+          <p>${imovel.quartos}</p>
+          <p>${imovel.tipo}</p>
+          <p>R$ ${imovel.valor_venda}</p>
+          <p>
             <button class="btn btn-info btn-sm" onclick="mostrarDetalhesImovel(${index})"><i class="bi bi-binoculars-fill"></i></button>
             <button class="btn btn-warning btn-sm" onclick="editarImovel(${index})"><i class="bi bi-pencil-fill"></i></button>
             <button class="btn btn-danger btn-sm" onclick="removerImovel(${index})"><i class="bi bi-trash3-fill"></i></button>
-          </td>
+          </p>
+            </div>
+          </div> <br>
+        
+
+
+
+
+
+          
         `;
         tbody.appendChild(tr);
       });

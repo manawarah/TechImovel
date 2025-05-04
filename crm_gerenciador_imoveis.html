@@ -168,18 +168,7 @@
     </div>
 
     <div class="table-responsive">
-      <table class="table table-hover table-bordered align-middle bg-white">
-        <thead class="table-dark">
-          <tr>
-            <th>Bairro</th>
-            <th>Quartos</th>
-            <th>Tipo</th>
-            <th>Valor</th>
-            <th>Ações</th>
-          </tr>
-        </thead>
-        <tbody id="imovel-tbody"></tbody>
-      </table>
+      <div id="imovel-tbody"></div>
     </div>
   </div>
 
@@ -223,15 +212,25 @@
       imoveis.forEach((imovel, index) => {
         const tr = document.createElement("tr");
         tr.innerHTML = `
-          <td>${imovel.bairro}</td>
-          <td>${imovel.quartos}</td>
-          <td>${imovel.tipo}</td>
-          <td>R$ ${imovel.valor_venda}</td>
-          <td>
-            <button class="btn btn-info btn-sm" onclick="mostrarDetalhesImovel(${index})"><i class="bi bi-binoculars-fill"></i></button>
-            <button class="btn btn-warning btn-sm" onclick="editarImovel(${index})"><i class="bi bi-pencil-fill"></i></button>
-            <button class="btn btn-danger btn-sm" onclick="removerImovel(${index})"><i class="bi bi-trash3-fill"></i></button>
-          </td>
+
+              <div class="card" style="width: 25rem;">
+                <img class="card-img-top" src="./assets/construtoras/GET A WAY.jpg" alt="Imagem de capa do card">
+                <div style="text-align: start;" class="card-body">
+                  <h5 class="card-title">Nome Residencial</h5>
+                  <p>Bairro: ${imovel.bairro}</p>
+                  <p>Quartos: ${imovel.quartos}</p>
+                  <p>Tipo: ${imovel.tipo}</p>
+                  <p>R$ ${imovel.valor_venda}</p>
+                  <button class="btn btn-info btn-sm" onclick="mostrarDetalhesImovel(${index})"><i
+                      class="bi bi-binoculars-fill"></i></button>
+                  <button class="btn btn-warning btn-sm" onclick="editarImovel(${index})"><i
+                      class="bi bi-pencil-fill"></i></button>
+                  <button class="btn btn-danger btn-sm" onclick="removerImovel(${index})"><i
+                      class="bi bi-trash3-fill"></i></button>
+                </div>
+              </div><br>
+
+
         `;
         tbody.appendChild(tr);
       });

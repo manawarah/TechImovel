@@ -195,6 +195,12 @@
             </div>
 
             <div class="mb-3">
+                <label for="nome_residencial" class="form-label">Nome do Residencial</label>
+                <input type="text" class="form-control" id="nome_residencial" name="nome_residencial"
+                    placeholder="Ex: Residencial Vista Bella">
+            </div>
+
+            <div class="mb-3">
                 <label for="cep" class="form-label">Cep</label>
                 <input type="text" class="form-control" id="cep" name="cep" placeholder="Ex: 58000-000">
             </div>
@@ -527,6 +533,7 @@
 
             document.getElementById("endereco").value = imovel.endereco;
             document.getElementById("bairro").value = imovel.bairro;
+            document.getElementById("nome_residencial").value = imovel.nome_residencial;
             document.getElementById("cep").value = imovel.cep;
             document.getElementById("cidade").value = imovel.cidade;
             document.getElementById("estado").value = imovel.estado;
@@ -575,6 +582,7 @@
 
             const endereco = document.getElementById("endereco").value.trim();
             const bairro = document.getElementById("bairro").value.trim();
+            const nome_residencial = document.getElementById("nome_residencial").value.trim();
             const cep = document.getElementById("cep").value.trim();
             const cidade = document.getElementById("cidade").value.trim();
             const estado = document.getElementById("estado").value.trim();
@@ -619,13 +627,13 @@
 
 
             // CAMPOS OBRIGATORIOS
-            if (!endereco || !bairro || !cep || !cidade || !estado || !referencia || !tipo || !finalidade || !area_total || !area_construida || !quartos || !suites || !banheiros || !vagas || !andar || !ano || !mobiliado || !diferenciais || !valor_venda || !valor_aluguel || !iptu || !condominio || !financiamento || !permuta || !video_link || !proprietario || !telefone || !email || !exclusividade || !placa || !matricula || !cartorio || !documentacao || !data_captacao || !corretor || !contrato
+            if (!endereco || !bairro || !nome_residencial || !cep || !cidade || !estado || !referencia || !tipo || !finalidade || !area_total || !area_construida || !quartos || !suites || !banheiros || !vagas || !andar || !ano || !mobiliado || !diferenciais || !valor_venda || !valor_aluguel || !iptu || !condominio || !financiamento || !permuta || !video_link || !proprietario || !telefone || !email || !exclusividade || !placa || !matricula || !cartorio || !documentacao || !data_captacao || !corretor || !contrato
             ) {
                 alert("Preencha todos os campos!");
                 return;
             }
 
-            const imovel = { endereco, bairro, cep, cidade, estado, referencia, tipo, finalidade, area_total, area_construida, quartos, suites, banheiros, vagas, andar, ano, mobiliado, diferenciais, valor_venda, valor_aluguel, iptu, condominio, financiamento, permuta, video_link, proprietario, telefone, email, exclusividade, placa, matricula, cartorio, documentacao, data_captacao, corretor, contrato };
+            const imovel = { endereco, bairro, nome_residencial, cep, cidade, estado, referencia, tipo, finalidade, area_total, area_construida, quartos, suites, banheiros, vagas, andar, ano, mobiliado, diferenciais, valor_venda, valor_aluguel, iptu, condominio, financiamento, permuta, video_link, proprietario, telefone, email, exclusividade, placa, matricula, cartorio, documentacao, data_captacao, corretor, contrato };
             const imoveis = JSON.parse(localStorage.getItem("imoveis")) || [];
 
             if (editandoIndex !== null) {

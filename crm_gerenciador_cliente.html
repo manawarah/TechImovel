@@ -260,7 +260,7 @@
 
           linha.innerHTML = `
       <td>${cliente.nome}</td>
-      <td>${cliente.statusCliente}</td>
+      <td>${cliente.status_cliente}</td>
       <td>
         <button class="btn btn-sm btn-info" onclick="visualizarCliente(${index})" data-bs-toggle="modal" data-bs-target="#visualizarModal"><i class="bi bi-binoculars-fill"></i></button>
         <a class="btn btn-sm btn-warning" href="./crm_add_cliente.html?edit=${index}"><i class="bi bi-pencil-fill"></i></a>
@@ -273,16 +273,23 @@
       });
 
       function visualizarCliente(index) {
-        const clientes = JSON.parse(localStorage.getItem('clientes')) || [];
-        const cliente = clientes[index];
+  const clientes = JSON.parse(localStorage.getItem('clientes')) || [];
+  const cliente = clientes[index];
 
-        const detalhes = Object.entries(cliente).map(([key, value]) => {
-          const formatado = key.replace(/_/g, ' ').replace(/([a-z])([A-Z])/g, '$1 $2');
-          return `<p><strong>${formatado}:</strong> ${value || '-'}</p>`;
-        }).join('');
+  const detalhes = Object.entries(cliente).map(([chave, valor]) => {
+    const titulo = chave
+      .replace(/_/g, " ")                // Substitui "_" por espaço
+      .replace(/\b\w/g, l => l.toUpperCase()); // Capitaliza cada palavra
+    return `<p><strong>${titulo}:</strong> ${valor || '-'}</p>`;
+  }).join("");
 
-        document.getElementById('modalDetalhesCliente').innerHTML = detalhes;
-      }
+  document.getElementById("modalDetalhesCliente").innerHTML = detalhes;
+  
+  // Mostra o modal, assumindo que está usando Bootstrap
+  const modal = new bootstrap.Modal(document.getElementById("modalCliente"));
+  modal.show();
+}
+
 
       function removerCliente(index) {
         let clientes = JSON.parse(localStorage.getItem('clientes')) || [];

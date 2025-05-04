@@ -627,11 +627,12 @@
 
 
             // CAMPOS OBRIGATORIOS
+            /*
             if (!endereco || !bairro || !nome_residencial || !cep || !cidade || !estado || !referencia || !tipo || !finalidade || !area_total || !area_construida || !quartos || !suites || !banheiros || !vagas || !andar || !ano || !mobiliado || !diferenciais || !valor_venda || !valor_aluguel || !iptu || !condominio || !financiamento || !permuta || !video_link || !proprietario || !telefone || !email || !exclusividade || !placa || !matricula || !cartorio || !documentacao || !data_captacao || !corretor || !contrato
             ) {
                 alert("Preencha todos os campos!");
                 return;
-            }
+            }*/
 
             const imovel = { endereco, bairro, nome_residencial, cep, cidade, estado, referencia, tipo, finalidade, area_total, area_construida, quartos, suites, banheiros, vagas, andar, ano, mobiliado, diferenciais, valor_venda, valor_aluguel, iptu, condominio, financiamento, permuta, video_link, proprietario, telefone, email, exclusividade, placa, matricula, cartorio, documentacao, data_captacao, corretor, contrato };
             const imoveis = JSON.parse(localStorage.getItem("imoveis")) || [];

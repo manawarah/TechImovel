@@ -212,29 +212,23 @@
       imoveis.forEach((imovel, index) => {
         const tr = document.createElement("div");
         tr.innerHTML = `
-          <div  class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
-                  <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p>${imovel.bairro}</p>
-          <p>${imovel.quartos}</p>
-          <p>${imovel.tipo}</p>
-          <p>R$ ${imovel.valor_venda}</p>
-          <p>
-            <button class="btn btn-info btn-sm" onclick="mostrarDetalhesImovel(${index})"><i class="bi bi-binoculars-fill"></i></button>
-            <button class="btn btn-warning btn-sm" onclick="editarImovel(${index})"><i class="bi bi-pencil-fill"></i></button>
-            <button class="btn btn-danger btn-sm" onclick="removerImovel(${index})"><i class="bi bi-trash3-fill"></i></button>
-          </p>
-            </div>
-          </div> <br>
-        
-
-
-
-
-
-          
-        `;
+          <div class="card" style="width: 18rem; text-align: start;">
+                <img src="./assets/construtora/GET A WAY.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title"><i class="bi bi-house-door-fill"></i> ${imovel.nome_residencial}</h5>
+                      <p><i class="bi bi-geo-alt-fill"></i> ${imovel.bairro}</p>
+                      <p><i class="bi bi-house-gear-fill"></i> ${imovel.quartos}</p>
+                      <p><i class="bi bi-blockquote-left"></i> ${imovel.tipo}</p>
+                      <p><i class="bi bi-cash-stack"></i> ${imovel.valor_venda}</p>
+                      <p>
+                        <button class="btn btn-info btn-sm" onclick="mostrarDetalhesImovel(${index})"><i class="bi bi-binoculars-fill"></i></button>
+                        <button class="btn btn-warning btn-sm" onclick="editarImovel(${index})"><i class="bi bi-pencil-fill"></i></button>
+                        <button class="btn btn-danger btn-sm" onclick="removerImovel(${index})"><i class="bi bi-trash3-fill"></i></button>
+                      </p>
+                  </div>
+          </div> 
+          <br>
+           `;
         tbody.appendChild(tr);
       });
     }

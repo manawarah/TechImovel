@@ -195,21 +195,16 @@
     <!-- Cards -->
     <div class="cards">
       <div class="card">
-        <h3>230</h3>
+        <h3 id="totalImoveis">0</h3>
         <p>Imóveis Cadastrados</p>
       </div>
+
       <div class="card">
-        <h3>769</h3>
+        <h3 id="totalClientes">0</h3>
         <p>Clientes no CRM</p>
       </div>
-      <div class="card">
-        <h3>R$ 189.000,00</h3>
-        <p>Valor Médio</p>
-      </div>
-      <div class="card">
-        <h3>68</h3>
-        <p>Parcerias</p>
-      </div>
+
+
     </div>
 
     <h3 class="mt-4 mb-3"
@@ -223,16 +218,42 @@
         <h3>Imóveis por Bairro</h3>
         <canvas id="graficoBairros"></canvas>
       </div>
-      <div class="chart-container">
-        <h3>Top 10 Imóveis - Valor</h3>
-        <canvas id="graficoValores"></canvas>
+      
+        <div class="chart-container" style="max-width:400px; margin:auto;">
+          <h3>Imóveis por Construtoras</h3>
+          <canvas id="graficoValores" width="300" height="300"></canvas>
+        </div>
+
       </div>
-    </div>
+    
 
     <footer style=" color: #222; text-align: center; padding: 20px;">
       <p>&copy; 2025 Manawarah. Todos os direitos reservados.</p>
     </footer>
   </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // --- Clientes ---
+      const clientes = JSON.parse(localStorage.getItem("clientes")) || [];
+      document.getElementById("totalClientes").textContent = clientes.length;
+
+      // --- Imóveis em Parceria ---
+      const imoveisParceria = JSON.parse(localStorage.getItem("imoveisParceria")) || [];
+      document.getElementById("totalImoveis").textContent = imoveisParceria.length;
+    });
+  </script>
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Busca os clientes salvos no localStorage
+      const clientes = JSON.parse(localStorage.getItem("clientes")) || [];
+
+      // Mostra o total no card
+      document.getElementById("totalClientes").textContent = clientes.length;
+    });
+  </script>
 
 
   <script>
@@ -250,6 +271,96 @@
       overlay.classList.remove('show');
     });
   </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const ctx = document.getElementById("graficoBairros").getContext("2d");
+
+      // Recupera imóveis da construtora
+      const imoveisConstrutora = JSON.parse(localStorage.getItem("imoveisConstrutora")) || [];
+
+      // Conta quantos imóveis por bairro
+      const contagemBairros = {};
+      imoveisConstrutora.forEach(imovel => {
+        const bairro = imovel.bairro;
+        contagemBairros[bairro] = (contagemBairros[bairro] || 0) + 1;
+      });
+
+      const labels = Object.keys(contagemBairros);
+      const dados = Object.values(contagemBairros);
+
+      new Chart(ctx, {
+        type: "bar",
+        data: {
+          labels: labels,
+          datasets: [{
+            label: "Imóveis por Bairro",
+            data: dados,
+            backgroundColor: "rgba(0, 200, 83, 0.6)",
+            borderColor: "rgba(0, 200, 83, 1)",
+            borderWidth: 1
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: { display: false }
+          },
+          scales: {
+            y: { beginAtZero: true }
+          }
+        }
+      });
+    });
+  </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const ctxConstrutora = document.getElementById("graficoValores").getContext("2d");
+
+      // Recupera imóveis da construtora
+      const imoveisConstrutora = JSON.parse(localStorage.getItem("imoveisConstrutora")) || [];
+
+      // Conta quantos imóveis por construtora
+      const contagemConstrutoras = {};
+      imoveisConstrutora.forEach(imovel => {
+        const construtora = imovel.construtora;
+        contagemConstrutoras[construtora] = (contagemConstrutoras[construtora] || 0) + 1;
+      });
+
+      const labelsConstrutora = Object.keys(contagemConstrutoras);
+      const dadosConstrutora = Object.values(contagemConstrutoras);
+
+      new Chart(ctxConstrutora, {
+        type: "pie",
+        data: {
+          labels: labelsConstrutora,
+          datasets: [{
+            label: "Imóveis por Construtora",
+            data: dadosConstrutora,
+            backgroundColor: [
+              "rgba(54, 162, 235, 0.6)",
+              "rgba(255, 99, 132, 0.6)",
+              "rgba(255, 206, 86, 0.6)",
+              "rgba(75, 192, 192, 0.6)"
+            ],
+            borderColor: "#fff",
+            borderWidth: 2
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: { position: "bottom" }
+          }
+        }
+      });
+    });
+  </script>
+
+
 </body>
 
 </html>

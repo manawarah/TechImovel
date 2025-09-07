@@ -186,102 +186,121 @@
 
     <br>
 
+    
     <section class="container my-4">
       <h2 class="text-center mb-4">Construtoras</h2>
-      <div class="row justify-content-center g-4">
-    
-        <div class="col-xl-4 col-md-6 col-12">
-          <div class="card h-100">
-            <img src="./assets/construtoras/GET ONE.jpg" class="card-img-top" alt="...">
-            <div class="card-body d-flex flex-column">
-              <h5 class="card-title">Domi Oceania</h5>
-              <h6>Construtora Inove</h6>
-              <p style="text-align: start;">
-                <i class="bi bi-house-door-fill"></i> Apartamento moderno com 3 dormitórios, sendo 1 suíte. <br>
-                <i class="bi bi-arrows-fullscreen"></i> Área privativa de 98m² com varanda gourmet. <br>
-                <i class="bi bi-cash-stack"></i> Valor: R$ 650.000,00 <br>
-                <i class="bi bi-geo-alt-fill"></i> Localização próxima a escolas e comércio.
-              </p>
-              <a href="https://drive.google.com/drive/folders/1eghZAC7rERPyHnvjndFWLau_WkGKD2TR" class="btn btn-primary mt-auto" target="_blank">Saiba mais</a>
-            </div>
-          </div>
-        </div>
-    
-        <!-- COPIE e repita o bloco acima para os outros cards -->
-        
-        <div class="col-xl-4 col-md-6 col-12">
-          <div class="card h-100">
-            <img src="./assets/construtoras/GET ONE.jpg" class="card-img-top" alt="...">
-            <div class="card-body d-flex flex-column">
-              <h5 class="card-title">Domi Oceania</h5>
-              <h6>Construtora Inove</h6>
-              <p style="text-align: start;">
-                <i class="bi bi-house-door-fill"></i> Apartamento moderno com 3 dormitórios, sendo 1 suíte. <br>
-                <i class="bi bi-arrows-fullscreen"></i> Área privativa de 98m² com varanda gourmet. <br>
-                <i class="bi bi-cash-stack"></i> Valor: R$ 650.000,00 <br>
-                <i class="bi bi-geo-alt-fill"></i> Localização próxima a escolas e comércio.
-              </p>
-              <a href="https://drive.google.com/drive/folders/1eghZAC7rERPyHnvjndFWLau_WkGKD2TR" class="btn btn-primary mt-auto" target="_blank">Saiba mais</a>
-            </div>
-          </div>
-        </div>
-    
-        <!-- Repita mais vezes conforme necessário -->
-        
+       <!-- Filtros -->
+   <!-- Filtros -->
+  <section class="container my-4">
+    <h2 class="text-center mb-4">Filtrar Imóveis</h2>
+    <form id="filterForm" class="row g-3">
+      <div class="col-md-3">
+        <input type="text" id="filterNome" class="form-control" placeholder="Nome do Imóvel">
       </div>
-    </section>
-
-    
-    <section class="container my-4">
-      
-      <div class="row justify-content-center g-4">
-    
-        <div class="col-xl-4 col-md-6 col-12">
-          <div class="card h-100">
-            <img src="./assets/construtoras/GET ONE.jpg" class="card-img-top" alt="...">
-            <div class="card-body d-flex flex-column">
-              <h5 class="card-title">Domi Oceania</h5>
-              <h6>Construtora Inove</h6>
-              <p style="text-align: start;">
-                <i class="bi bi-house-door-fill"></i> Apartamento moderno com 3 dormitórios, sendo 1 suíte. <br>
-                <i class="bi bi-arrows-fullscreen"></i> Área privativa de 98m² com varanda gourmet. <br>
-                <i class="bi bi-cash-stack"></i> Valor: R$ 650.000,00 <br>
-                <i class="bi bi-geo-alt-fill"></i> Localização próxima a escolas e comércio.
-              </p>
-              <a href="https://drive.google.com/drive/folders/1eghZAC7rERPyHnvjndFWLau_WkGKD2TR" class="btn btn-primary mt-auto" target="_blank">Saiba mais</a>
-            </div>
-          </div>
-        </div>
-    
-        <!-- COPIE e repita o bloco acima para os outros cards -->
-        
-        <div class="col-xl-4 col-md-6 col-12">
-          <div class="card h-100">
-            <img src="./assets/construtoras/GET ONE.jpg" class="card-img-top" alt="...">
-            <div class="card-body d-flex flex-column">
-              <h5 class="card-title">Domi Oceania</h5>
-              <h6>Construtora Inove</h6>
-              <p style="text-align: start;">
-                <i class="bi bi-house-door-fill"></i> Apartamento moderno com 3 dormitórios, sendo 1 suíte. <br>
-                <i class="bi bi-arrows-fullscreen"></i> Área privativa de 98m² com varanda gourmet. <br>
-                <i class="bi bi-cash-stack"></i> Valor: R$ 650.000,00 <br>
-                <i class="bi bi-geo-alt-fill"></i> Localização próxima a escolas e comércio.
-              </p>
-              <a href="https://drive.google.com/drive/folders/1eghZAC7rERPyHnvjndFWLau_WkGKD2TR" class="btn btn-primary mt-auto" target="_blank">Saiba mais</a>
-            </div>
-          </div>
-        </div>
-    
-        <!-- Repita mais vezes conforme necessário -->
-        
+      <div class="col-md-3">
+        <input type="text" id="filterBairro" class="form-control" placeholder="Bairro">
       </div>
-    </section>
-    
-  </div>
+      <div class="col-md-2">
+        <select id="filterQuartos" class="form-select">
+          <option value="">Quartos</option>
+          <option value="1">1 Quarto</option>
+          <option value="2">2 Quartos</option>
+          <option value="3">3 Quartos</option>
+          <option value="4">4+ Quartos</option>
+        </select>
+      </div>
+      <div class="col-md-2">
+        <input type="number" id="filterValor" class="form-control" placeholder="Até R$">
+      </div>
+      <div class="col-md-2 d-grid">
+        <button type="button" id="btnFiltrar" class="btn btn-success"><i class="bi bi-funnel-fill"></i> Filtrar</button>
+      </div>
+    </form>
+  </section>
 
-  <footer style=" color: #222; text-align: center; padding: 20px;">
+  <!-- Lista de Imóveis -->
+  <section class="container my-4">
+    <h2 class="text-center mb-4">Construtoras</h2>
+    <div class="row justify-content-center g-4" id="cardsContainer">
+
+      <!-- Card exemplo -->
+      <div class="col-xl-4 col-md-6 col-12 imovel-card"
+        data-nome="Domi Oceania"
+        data-bairro="Manaíra"
+        data-quartos="3"
+        data-valor="650000">
+        <div class="card h-100">
+          <img src="./assets/construtoras/GET ONE.jpg" class="card-img-top" alt="...">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Domi Oceania</h5>
+            <h6>Construtora Inove</h6>
+            <p>
+              <i class="bi bi-house-door-fill"></i> Apartamento moderno com 3 dormitórios, sendo 1 suíte. <br>
+              <i class="bi bi-arrows-fullscreen"></i> Área privativa de 98m² com varanda gourmet. <br>
+              <i class="bi bi-cash-stack"></i> Valor: R$ 650.000,00 <br>
+              <i class="bi bi-geo-alt-fill"></i> Localização: Manaíra.
+            </p>
+            <a href="https://drive.google.com/drive/folders/1eghZAC7rERPyHnvjndFWLau_WkGKD2TR"
+              class="btn btn-primary mt-auto" target="_blank">Saiba mais</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Copie mais cards e altere os data-* -->
+      <div class="col-xl-4 col-md-6 col-12 imovel-card"
+        data-nome="Residencial Bessa Life"
+        data-bairro="Bessa"
+        data-quartos="2"
+        data-valor="450000">
+        <div class="card h-100">
+          <img src="./assets/construtoras/GET ONE.jpg" class="card-img-top" alt="...">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Residencial Bessa Life</h5>
+            <h6>Construtora Alpha</h6>
+            <p>
+              <i class="bi bi-house-door-fill"></i> Apartamento de 2 quartos, 1 suíte. <br>
+              <i class="bi bi-arrows-fullscreen"></i> 75m² com varanda. <br>
+              <i class="bi bi-cash-stack"></i> Valor: R$ 450.000,00 <br>
+              <i class="bi bi-geo-alt-fill"></i> Localização: Bessa.
+            </p>
+            <a href="#" class="btn btn-primary mt-auto">Saiba mais</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="text-center p-3 bg-light">
     <p>&copy; 2025 Manawarah. Todos os direitos reservados.</p>
   </footer>
+
+  <script>
+    document.getElementById("btnFiltrar").addEventListener("click", () => {
+      const nome = document.getElementById("filterNome").value.toLowerCase();
+      const bairro = document.getElementById("filterBairro").value.toLowerCase();
+      const quartos = document.getElementById("filterQuartos").value;
+      const valor = parseInt(document.getElementById("filterValor").value) || Infinity;
+
+      document.querySelectorAll(".imovel-card").forEach(card => {
+        const cardNome = card.dataset.nome.toLowerCase();
+        const cardBairro = card.dataset.bairro.toLowerCase();
+        const cardQuartos = card.dataset.quartos;
+        const cardValor = parseInt(card.dataset.valor);
+
+        const matchNome = !nome || cardNome.includes(nome);
+        const matchBairro = !bairro || cardBairro.includes(bairro);
+        const matchQuartos = !quartos || cardQuartos === quartos || (quartos === "4" && cardQuartos >= 4);
+        const matchValor = cardValor <= valor;
+
+        if (matchNome && matchBairro && matchQuartos && matchValor) {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    });
+  </script>
 
 
   <script>
@@ -299,6 +318,27 @@
       overlay.classList.remove('show');
     });
   </script>
+
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const cards = document.querySelectorAll(".imovel-card");
+    const imoveisConstrutora = [];
+
+    cards.forEach(card => {
+      const nome = card.querySelector(".card-title").textContent.trim();
+      const construtora = card.querySelector("h6").textContent.trim();
+      const bairro = card.dataset.bairro;
+
+      imoveisConstrutora.push({ nome, construtora, bairro });
+    });
+
+    // Salva no localStorage
+    localStorage.setItem("imoveisConstrutora", JSON.stringify(imoveisConstrutora));
+  });
+</script>
+
+
+  
 </body>
 
 </html>
